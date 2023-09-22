@@ -21,7 +21,7 @@ const reducer = persistReducer(config, reducers); //takes two parameters, our co
 //now we are going to create the store itself
 const store = configureStore({
   reducer: reducer, //the reducer from line 18 that persists info
-  devTools: process.env.NODE.ENV !== "production", //that will be available only in the development mode. so the line above will equate to true if in a dev mode
+  devTools: process.env.NODE_ENV !== "production", //that will be available only in the development mode. so the line above will equate to true if in a dev mode
   middleware: [thunk],
 });
 
