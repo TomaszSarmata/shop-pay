@@ -2,25 +2,59 @@
   margin: 0;
   box-sizing: border-box;
   //here we are going to use &:: to copy the parent selector so here * and then give it a property / styling. Normally you would wright the whole selector *::after {property}
-&::before,
-&::after{
-  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
 }
 
+body {
+  font-family: sans-serif;
+  line-height: 1.5; //so that controls the horizontal space between the text elements. 1.5 = 150% which is a good balance
+  -webkit-font-smoothing: antialiased; //makes the font more smooth i guess
 }
 
-section {
-  width: 300px ;
-  height: 200px;
+//by default the elements below don't inherit the font from the body so we have to instruct our program to do that. any styling we supply to the body will now get fed to those elements
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
-.block1 {
-  background: red;
-  
+//below we are going to make sure that any text in our website is not going to overflow but will wrap and break-word
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
-.block2 {
-  background: blue;
-  border: black 10px solid;
-  padding: 10px;
+
+//below we are going to set the value width for any img, vid, canvas, svg to 100%. The reason, sometimes when we add an img in our project it will be so big on the initial upload that it will overflow and mess up our workflow. So we want to make sure that whenever we add img, video etc it will be contained within the parent element
+
+img,
+video,
+canvas,
+svg {
+  width: 100%;
+}
+
+a {
+  text-decoration: none; //no underline
+  color: inherit; //by default its black so we want to just feed the color from the parent
+}
+
+ul {
+  list-style: none; //without the bullets
+  margin: 0;
+  padding: 0; //they have default margin and padding
+}
+
+button {
+  border: none;
+  outline: none; //just getting rid of the default styling
 }
