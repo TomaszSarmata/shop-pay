@@ -3,10 +3,11 @@ import { combineReducers } from "redux"; // from "@reduxjs/toolkit"
 import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
+import cart from "./cartSlice";
 
 // we are starting with defining our reducers
 
-const reducers = combineReducers({}); //so that we can have a lot of reducers (like cart, user etc) at the same time accessible through 'reducers'
+const reducers = combineReducers({ cart }); //so that we can have a lot of reducers (like cart, user etc) at the same time accessible through 'reducers'
 
 // here we are going to config our reducers
 const config = {
