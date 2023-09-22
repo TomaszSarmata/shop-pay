@@ -1,9 +1,9 @@
 import mongoose from "mongoose"; //first install both npm i mongodb mongoose and enter. then import. Then create our connection object like below.
 const connection = {};
 
-//export async function
+//export async function, then we removed default export and added export statement at the bottom with a few different functions
 
-export async function connectDb() {
+async function connectDb() {
   //first we gonna check if already connected
   if (connection.isConnected) {
     console.log("Already connected to the database");
@@ -26,6 +26,26 @@ export async function connectDb() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  console.log("New connection to the database."); //so this is what happens if we connect to the db for the very first time
+  console.log("New connection to the database."); //so this is what happens if we connect to the db for the very first time. All of those messages will display in the terminal VS and not in the browser as we work the back end now
   connection.isConnected = db.connections[0].readyState;
 }
+
+//here we are going to create an extra disconnect function that will only work in the production mode when the project is already available for everyone. In the development mode this function is not going to work as that would occupy too many processes in our program
+async function disconnectDb() {
+  //check if connected
+  if (connection.isConnected) {
+    //check if in a production mode
+    if (process.env.NODE_ENV === "production") {
+      //if so then disconnect
+      await mongoose.disconnect();
+      connection.isConnected = false;
+    } else {
+      //other scenario means we are in a dev mode so just leave it like that
+      console.log("not disconnecting from database");
+    }
+  }
+}
+
+//after removing default exports we create a db object and export that from this file as default. This allows us to export many functions at the same time in just one object
+const db = { connectDb, disconnectDb };
+export default db;
