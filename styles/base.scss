@@ -1,0 +1,3 @@
+// here is our scss file wiht custom variables that is going to be accessible in our all other files wihtout the manual import statements. To do that we have to change the config settings for next.js with sassOptions
+
+$red-color: rgba(255, 0, 0, 0.523);
