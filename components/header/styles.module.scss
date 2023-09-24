@@ -6,4 +6,7 @@
   height: 54px;
   width: 100%;
   background-image: url("../../public/images/ad.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; //that will center the background image for us
 }
