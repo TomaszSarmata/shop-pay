@@ -81,7 +81,10 @@
       }
       &:hover {
         span {
-          color: #000; //that is for just changing the color of txt
+          color: #222; //that is for just changing the color of txt
+        }
+        svg {
+          fill: #666;
         }
       }
     }
