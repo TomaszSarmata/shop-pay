@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { MdSecurity } from "react-icons/md";
 import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
+import Link from "next/link";
 
 export default function Top() {
   return (
@@ -29,7 +30,9 @@ export default function Top() {
           </li>
           <li>
             <BsSuitHeart />
-            <span>Whishlist</span>
+            <Link href="/profile/whishlist">
+              <span>Whishlist</span>
+            </Link>
           </li>
           <li>
             <div className={styles.flex}>
