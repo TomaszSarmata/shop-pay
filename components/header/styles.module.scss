@@ -87,6 +87,14 @@
           fill: #666;
         }
       }
+      @media (max-width: 740px) {
+        //select 2nd, 3rd, 4th item to hide
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          display: none;
+        }
+      }
     }
   }
 }
