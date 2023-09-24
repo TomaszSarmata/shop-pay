@@ -1,5 +1,6 @@
 .header {
   height: 100%;
+  box-shadow: $shadow-1;
 }
 
 //AD----------------------------------------
@@ -16,4 +17,73 @@
   background: #f8f8f8;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  &_container {
+    //you can do it like that in saas so the & will take a parent name and append it at tthe front so top_container
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    li {
+      position: relative; //to do divisive margins between each li
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: center;
+      gap: 4px;
+      color: #666;
+      .flex {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        svg {
+          transform: scale(1.2);
+          margin-right: 3px;
+        }
+      }
+      img {
+        width: 28px;
+        height: 28px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: #ccc;
+      }
+      span {
+        font-style: 12px;
+      }
+      &::after {
+        //all of that is simply a right margin for each li really verbose...
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 20px;
+        background: #ccc;
+      }
+      &:last-of-type {
+        //and this one is to take this margin off the last li
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//helper--------------------------
+.white {
+  color: #eee;
+  font-size: xx-small;
 }
