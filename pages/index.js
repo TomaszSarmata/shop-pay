@@ -5,8 +5,6 @@ export default function Home() {
   return (
     <div>
       <Header></Header>
-      <h1 className={styles.red}>Welcome</h1>
-      <button>click me</button>
     </div>
   );
 }
