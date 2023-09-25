@@ -3,8 +3,11 @@ import { MdSecurity } from "react-icons/md";
 import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Top() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className={styles.top}>
       <div className={styles.top_container}>
@@ -35,11 +38,26 @@ export default function Top() {
             </Link>
           </li>
           <li>
-            <div className={styles.flex}>
-              <RiAccountPinCircleLine />
-              <span>Account</span>
-              <RiArrowDropDownFill />
-            </div>
+            {loggedIn ? (
+              <li>
+                <div className={styles.flex}>
+                  <img
+                    src="https://www.seekpng.com/png/detail/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
+                    alt="avatar"
+                  />
+                  <span>Tomasz</span>
+                  <RiArrowDropDownFill />
+                </div>
+              </li>
+            ) : (
+              <li>
+                <div className={styles.flex}>
+                  <RiAccountPinCircleLine />
+                  <span>Account</span>
+                  <RiArrowDropDownFill />
+                </div>
+              </li>
+            )}
           </li>
         </ul>
       </div>
