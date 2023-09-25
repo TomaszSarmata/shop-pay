@@ -1,3 +1,12 @@
 // here is our scss file wiht custom variables that is going to be accessible in our all other files wihtout the manual import statements. To do that we have to change the config settings for next.js with sassOptions
 
+$blue-color: #2f82ff;
 $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+.btn_primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: $blue-color;
+}
