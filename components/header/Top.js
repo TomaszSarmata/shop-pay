@@ -59,7 +59,7 @@ export default function Top() {
                 </div>
               </li>
             )}
-            <UserMenu></UserMenu>
+            <UserMenu loggedIn={loggedIn}></UserMenu>
           </li>
         </ul>
       </div>
