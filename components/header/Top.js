@@ -4,6 +4,7 @@ import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
 import { useState } from "react";
+import UserMenu from "./UserMenu";
 
 export default function Top() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -58,6 +59,7 @@ export default function Top() {
                 </div>
               </li>
             )}
+            <UserMenu></UserMenu>
           </li>
         </ul>
       </div>
