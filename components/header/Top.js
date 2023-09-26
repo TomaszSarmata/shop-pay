@@ -39,7 +39,11 @@ export default function Top() {
               <span>Whishlist</span>
             </Link>
           </li>
-          <li className={styles.li}>
+          <li
+            className={styles.li}
+            onMouseOver={() => setVisible(true)}
+            onMouseLeave={() => setVisible(false)}
+          >
             {loggedIn ? (
               <li className={styles.li}>
                 <div className={styles.flex}>
