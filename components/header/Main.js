@@ -18,12 +18,12 @@ export default function Main() {
         <div className={styles.search}>
           <input type="text" placeholder="Search..." />
           <div className={styles.search_icon}>
-            <RiSearch2Line className={styles.react_icon} />
+            <RiSearch2Line />
           </div>
         </div>
 
         <Link legacyBehavior href="/cart">
-          <a className="styles.cart">
+          <a className={styles.cart}>
             <FaOpencart className={styles.react_icon} />
             <span>{cart.length}</span>
           </a>
