@@ -33,7 +33,7 @@
     li {
       position: relative; //to do divisive margins between each li
       display: flex;
-      flex-direction: row;
+      // flex-direction: row;
       align-items: center;
       justify-items: center;
       gap: 4px;
@@ -113,6 +113,9 @@
   padding: 1rem 0;
   h4 {
     text-align: center;
+  }
+  li {
+    flex-direction: column;
   }
   .flex {
     display: flex;
