@@ -15,7 +15,7 @@ export default function UserMenu({ loggedIn }) {
           />
           <div className={styles.col}>
             <span>Welcome Back,</span>
-            <h4>Tomas</h4>
+            <h3>Tomas</h3>
             <span>Sign out</span>
           </div>
         </div>
