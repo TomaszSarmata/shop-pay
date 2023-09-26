@@ -28,10 +28,18 @@ export default function UserMenu({ loggedIn }) {
       <ul>
         <li>
           <Link href="/profile">Account</Link>
-          <Link href="/orders">My Orders</Link>
+        </li>
+        <li>
+          <Link href="/profile/orders">My Orders</Link>
+        </li>
+        <li>
           <Link href="/profile/messages">Message Center</Link>
+        </li>
+        <li>
           <Link href="/profile/address">Address</Link>
-          <Link href="/profile/whishlist">Wishlist</Link>
+        </li>
+        <li>
+          <Link href="/profile/whishlist">Whishlist</Link>
         </li>
       </ul>
     </div>
