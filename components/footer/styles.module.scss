@@ -1,0 +1,10 @@
+.footer {
+  background: #f8f8f8;
+  &_container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 3rem;
+    padding: 1rem;
+  }
+}
