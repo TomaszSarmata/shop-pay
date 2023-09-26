@@ -5,6 +5,7 @@ export default function UserMenu({ loggedIn }) {
   return (
     <div className={styles.menu}>
       <h4>Welcome to Shoppay!</h4>
+
       {loggedIn ? (
         <div className={styles.flex}>
           <img
@@ -13,8 +14,8 @@ export default function UserMenu({ loggedIn }) {
             className={styles.menu_img}
           />
           <div className={styles.col}>
-            <span>Welcome Back</span>
-            <h3>Tomas</h3>
+            <span>Welcome Back,</span>
+            <h4>Tomas</h4>
             <span>Sign out</span>
           </div>
         </div>
