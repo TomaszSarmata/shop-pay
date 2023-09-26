@@ -7,7 +7,8 @@ import { useState } from "react";
 import UserMenu from "./UserMenu";
 
 export default function Top() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   return (
     <div className={styles.top}>
@@ -59,7 +60,7 @@ export default function Top() {
                 </div>
               </li>
             )}
-            <UserMenu loggedIn={loggedIn}></UserMenu>
+            {visible && <UserMenu loggedIn={loggedIn}></UserMenu>}
           </li>
         </ul>
       </div>
