@@ -4,12 +4,13 @@ import Link from "next/link";
 export default function Links() {
   return (
     <div className={styles.footer_links}>
-      {links.map((link) => (
+      {links.map((link, i) => (
         <ul key={link.name}>
-          <b>{link.heading}</b>
+          {i === 0 ? <img src="/logo.png" alt="logo" /> : <b>{link.heading}</b>}
+
           {link.links.map((link2) => (
             <li key={link2}>
-              <Link href={link2.link}>{link2.name}</Link>
+              <a href={link2.link}>{link2.name}</a>
             </li>
           ))}
         </ul>
