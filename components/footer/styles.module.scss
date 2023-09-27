@@ -11,6 +11,11 @@
     width: 140px;
     height: 40px;
   }
+  h3 {
+    font-size: 12px;
+    font-weight: 700px;
+    color: #222;
+  }
   &_links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -32,4 +37,28 @@
       }
     }
   }
+  &_socials {
+    section {
+      ul {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        li {
+          font-size: 2rem;
+          color: #666;
+          &:hover {
+            color: $blue-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Helper----------------------
+
+.icon {
+  width: 40px;
+  height: 40px;
 }
