@@ -28,11 +28,18 @@ export async function getServerSideProps() {
   //here we need to return our props for them to be available on the client side
   return {
     props: {
+      // country: {
+      //   name: data.name,
+      //   code: data.code,
+      //   flag: data.flag.emojitwo,
+      // }, //now we can catch country in the props of the Home component at the top of this filw
+
+      //uncomment the above object while going to production. In development use static data to save on tokens with ipregistry
       country: {
-        name: data.name,
-        code: data.code,
-        flag: data.flag.emojitwo,
-      }, //now we can catch country in the props of the Home component at the top of this filw
+        name: "UK",
+        flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/255px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png",
+        code: "GB",
+      }, //remember to uncomment the real data before going to production
     },
   };
 }
