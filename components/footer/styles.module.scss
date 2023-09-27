@@ -17,6 +17,9 @@
     gap: 1rem;
     ul {
       padding: 5px;
+      b {
+        text-transform: uppercase;
+      }
       li {
         font-size: 12px;
         a {
