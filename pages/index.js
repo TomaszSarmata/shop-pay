@@ -7,7 +7,7 @@ export default function Home({ country }) {
   return (
     <div>
       <Header country={country}></Header>
-      <Footer></Footer>
+      <Footer country={country}></Footer>
     </div>
   );
 }
