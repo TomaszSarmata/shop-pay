@@ -28,7 +28,11 @@ export async function getServerSideProps() {
   //here we need to return our props for them to be available on the client side
   return {
     props: {
-      country: data, //now we can catch country in the props of the Home component at the top of this filw
+      country: {
+        name: data.name,
+        code: data.code,
+        flag: data.flag.emojitwo,
+      }, //now we can catch country in the props of the Home component at the top of this filw
     },
   };
 }

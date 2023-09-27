@@ -10,14 +10,13 @@ export default function Top({ country }) {
   const [loggedIn, setLoggedIn] = useState(true);
   const [visible, setVisible] = useState(false);
 
-  console.log(country.flag.emoji);
   return (
     <div className={styles.top}>
       <div className={styles.top_container}>
         <div></div>
         <ul className={styles.top_list}>
           <li className={styles.li}>
-            <img src={country.flag.emojitwo} alt="country flag" />
+            <img src={country.flag} alt="country flag" />
             <span>
               {country.name} / {country.code}
             </span>
