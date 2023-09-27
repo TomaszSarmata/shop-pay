@@ -45,24 +45,28 @@ export default function Top() {
             onMouseLeave={() => setVisible(false)}
           >
             {loggedIn ? (
-              <li className={styles.li}>
-                <div className={styles.flex}>
-                  <img
-                    src="https://www.seekpng.com/png/detail/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
-                    alt="avatar"
-                  />
-                  <span>Tomasz</span>
-                  <RiArrowDropDownFill />
-                </div>
-              </li>
+              <ul>
+                <li className={styles.li}>
+                  <div className={styles.flex}>
+                    <img
+                      src="https://www.seekpng.com/png/detail/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
+                      alt="avatar"
+                    />
+                    <span>Tomasz</span>
+                    <RiArrowDropDownFill />
+                  </div>
+                </li>
+              </ul>
             ) : (
-              <li className={styles.li}>
-                <div className={styles.flex}>
-                  <RiAccountPinCircleLine />
-                  <span>Account</span>
-                  <RiArrowDropDownFill />
-                </div>
-              </li>
+              <ul>
+                <li className={styles.li}>
+                  <div className={styles.flex}>
+                    <RiAccountPinCircleLine />
+                    <span>Account</span>
+                    <RiArrowDropDownFill />
+                  </div>
+                </li>
+              </ul>
             )}
             {visible && <UserMenu loggedIn={loggedIn}></UserMenu>}
           </li>
