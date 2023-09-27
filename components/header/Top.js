@@ -6,21 +6,21 @@ import Link from "next/link";
 import { useState } from "react";
 import UserMenu from "./UserMenu";
 
-export default function Top() {
+export default function Top({ country }) {
   const [loggedIn, setLoggedIn] = useState(true);
   const [visible, setVisible] = useState(false);
 
+  console.log(country.flag.emoji);
   return (
     <div className={styles.top}>
       <div className={styles.top_container}>
         <div></div>
         <ul className={styles.top_list}>
           <li className={styles.li}>
-            <img
-              src="https://www.seekpng.com/png/full/422-4223726_peta-negara-polandia-poland-map-flag-png.png"
-              alt="polish flag"
-            />
-            <span>Poland / pln</span>
+            <img src={country.flag.emojitwo} alt="country flag" />
+            <span>
+              {country.name} / {country.code}
+            </span>
           </li>
           <li className={styles.li}>
             <MdSecurity />

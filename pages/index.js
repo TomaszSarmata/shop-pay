@@ -4,10 +4,9 @@ import styles from "../styles/Home.module.scss";
 import axios from "axios";
 
 export default function Home({ country }) {
-  console.log(country);
   return (
     <div>
-      <Header></Header>
+      <Header country={country}></Header>
       <Footer></Footer>
     </div>
   );
