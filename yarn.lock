@@ -7,6 +7,25 @@
   resolved "https://registry.npmjs.org/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@auth/core@0.14.0":
+  version "0.14.0"
+  resolved "https://registry.npmjs.org/@auth/core/-/core-0.14.0.tgz"
+  integrity sha512-kZMwjFWDGxSI/e4+HO6KeTmuMFMWu6qIzgF1k87HbKdxNFis3K1PXz7md3fCB4+5ije93Uld1ZNUdlmB2rAHww==
+  dependencies:
+    "@panva/hkdf" "^1.0.4"
+    cookie "0.5.0"
+    jose "^4.11.1"
+    oauth4webapi "^2.0.6"
+    preact "10.11.3"
+    preact-render-to-string "5.2.3"
+
+"@auth/mongodb-adapter@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@auth/mongodb-adapter/-/mongodb-adapter-2.0.0.tgz"
+  integrity sha512-uEcGA2ijIK7lBIINLS337c/RNCQiH/GVm/yKAziGuctjlsLEb6odnF2eq3wm3rO0aNB73vIwem15n8kWhEIw7Q==
+  dependencies:
+    "@auth/core" "0.14.0"
+
 "@babel/runtime@^7.12.1", "@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
   version "7.22.15"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.22.15.tgz"
@@ -110,7 +129,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@panva/hkdf@^1.0.2":
+"@panva/hkdf@^1.0.2", "@panva/hkdf@^1.0.4":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@panva/hkdf/-/hkdf-1.1.1.tgz"
   integrity sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==
@@ -523,7 +542,7 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-cookie@^0.5.0:
+cookie@^0.5.0, cookie@0.5.0:
   version "0.5.0"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
@@ -1461,7 +1480,7 @@ iterator.prototype@^1.1.2:
     reflect.getprototypeof "^1.0.4"
     set-function-name "^2.0.1"
 
-jose@^4.11.4, jose@^4.14.4:
+jose@^4.11.1, jose@^4.11.4, jose@^4.14.4:
   version "4.14.6"
   resolved "https://registry.npmjs.org/jose/-/jose-4.14.6.tgz"
   integrity sha512-EqJPEUlZD0/CSUMubKtMaYUOtWe91tZXTWMJZoKSbLk+KtdhNdcvppH8lA9XwVu2V4Ailvsj0GBZJ2ZwDjfesQ==
@@ -1618,7 +1637,7 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@^6.1.0:
+mongodb@^6, mongodb@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/mongodb/-/mongodb-6.1.0.tgz"
   integrity sha512-AvzNY0zMkpothZ5mJAaIo2bGDjlJQqqAbn9fvtVgwIIUPEfdrqGxqNjjbuKyrgQxg2EvCmfWdjq+4uj96c0YPw==
@@ -1741,6 +1760,11 @@ oauth@^0.9.15:
   version "0.9.15"
   resolved "https://registry.npmjs.org/oauth/-/oauth-0.9.15.tgz"
   integrity sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==
+
+oauth4webapi@^2.0.6:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/oauth4webapi/-/oauth4webapi-2.3.0.tgz"
+  integrity sha512-JGkb5doGrwzVDuHwgrR4nHJayzN4h59VCed6EW8Tql6iHDfZIabCJvg6wtbn5q6pyB2hZruI3b77Nudvq7NmvA==
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -1923,10 +1947,22 @@ preact-render-to-string@^5.1.19:
   dependencies:
     pretty-format "^3.8.0"
 
+preact-render-to-string@5.2.3:
+  version "5.2.3"
+  resolved "https://registry.npmjs.org/preact-render-to-string/-/preact-render-to-string-5.2.3.tgz"
+  integrity sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==
+  dependencies:
+    pretty-format "^3.8.0"
+
 preact@^10.6.3, preact@>=10:
   version "10.17.1"
   resolved "https://registry.npmjs.org/preact/-/preact-10.17.1.tgz"
   integrity sha512-X9BODrvQ4Ekwv9GURm9AKAGaomqXmip7NQTZgY7gcNmr7XE83adOMJvd3N42id1tMFU7ojiynRsYnY6/BRFxLA==
+
+preact@10.11.3:
+  version "10.11.3"
+  resolved "https://registry.npmjs.org/preact/-/preact-10.11.3.tgz"
+  integrity sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
