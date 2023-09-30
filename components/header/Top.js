@@ -48,11 +48,8 @@ export default function Top({ country }) {
               <ul>
                 <li className={styles.li}>
                   <div className={styles.flex}>
-                    <img
-                      src="https://www.seekpng.com/png/detail/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
-                      alt="avatar"
-                    />
-                    <span>Tomasz</span>
+                    <img src={session.user.image} alt="avatar" />
+                    <span>{session.user.name}</span>
                     <RiArrowDropDownFill />
                   </div>
                 </li>
