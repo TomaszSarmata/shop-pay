@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, signIn } from "next-auth/react";
 
 export default function UserMenu({ session }) {
   return (
@@ -23,7 +23,9 @@ export default function UserMenu({ session }) {
       ) : (
         <div className={styles.flex}>
           <button className={styles.btn_primary}>Register</button>
-          <button className={styles.btn_outlined}>Login</button>
+          <button onClick={signIn} className={styles.btn_outlined}>
+            Login
+          </button>
         </div>
       )}
       <ul>
