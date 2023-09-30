@@ -24,7 +24,7 @@ export default NextAuth({
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientSecret: process.env.GOOGLE_SECRET, //added clientId and clientSecret in .env file
     }),
   ],
   //here we are sinply adding a page to the nextauth settings with the route /signin
