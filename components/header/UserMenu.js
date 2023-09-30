@@ -17,13 +17,13 @@ export default function UserMenu({ session }) {
           <div className={styles.col}>
             <span>Welcome Back,</span>
             <h3>{session.user.name}</h3>
-            <span onClick={signOut}>Sign out</span>
+            <span onClick={() => signOut()}>Sign out</span>
           </div>
         </div>
       ) : (
         <div className={styles.flex}>
           <button className={styles.btn_primary}>Register</button>
-          <button onClick={signIn} className={styles.btn_outlined}>
+          <button onClick={() => signIn()} className={styles.btn_outlined}>
             Login
           </button>
         </div>
