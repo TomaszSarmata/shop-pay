@@ -9,13 +9,13 @@ export default function UserMenu({ loggedIn }) {
       {loggedIn ? (
         <div className={styles.flex}>
           <img
-            src="https://www.seekpng.com/png/detail/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
+            src={loggedIn.user.image}
             alt="avatar"
             className={styles.menu_img}
           />
           <div className={styles.col}>
             <span>Welcome Back,</span>
-            <h3>Tomas</h3>
+            <h3>{loggedIn.user.name}</h3>
             <span>Sign out</span>
           </div>
         </div>
