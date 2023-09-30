@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 export default function UserMenu({ session }) {
   return (
@@ -16,7 +17,7 @@ export default function UserMenu({ session }) {
           <div className={styles.col}>
             <span>Welcome Back,</span>
             <h3>{session.user.name}</h3>
-            <span>Sign out</span>
+            <span onClick={signOut}>Sign out</span>
           </div>
         </div>
       ) : (
