@@ -1,21 +1,21 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
 
-export default function UserMenu({ loggedIn }) {
+export default function UserMenu({ session }) {
   return (
     <div className={styles.menu}>
       <h4>Welcome to Shoppay!</h4>
 
-      {loggedIn ? (
+      {session ? (
         <div className={styles.flex}>
           <img
-            src={loggedIn.user.image}
+            src={session.user.image}
             alt="avatar"
             className={styles.menu_img}
           />
           <div className={styles.col}>
             <span>Welcome Back,</span>
-            <h3>{loggedIn.user.name}</h3>
+            <h3>{session.user.name}</h3>
             <span>Sign out</span>
           </div>
         </div>
