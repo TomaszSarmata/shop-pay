@@ -28,7 +28,10 @@ export default function signin() {
             <Formik>
               {(form) => (
                 <Form>
-                  <LoginInput icon="email"></LoginInput>
+                  <LoginInput
+                    placeholder="password"
+                    icon="password"
+                  ></LoginInput>
                 </Form>
               )}
             </Formik>
