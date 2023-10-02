@@ -5,6 +5,7 @@ import styles from "../styles/signin.module.scss";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import { Formik, Form } from "formik";
+import LoginInput from "../components/shared/inputs/login-input";
 
 export default function signin() {
   // TODO - change the static values for the country in the Header and the Footer
@@ -27,7 +28,7 @@ export default function signin() {
             <Formik>
               {(form) => (
                 <Form>
-                  <input type="text" />
+                  <LoginInput icon="email"></LoginInput>
                 </Form>
               )}
             </Formik>
