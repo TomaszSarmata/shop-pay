@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import styles from "../styles/signin.module.scss";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
+import { Formik, Form } from "formik";
 
 export default function signin() {
   // TODO - change the static values for the country in the Header and the Footer
@@ -19,6 +20,17 @@ export default function signin() {
             <span>
               We'd be happy to join us! <Link href="/">Go Store</Link>{" "}
             </span>
+          </div>
+          <div className={styles.login_form}>
+            <h1>Sign in</h1>
+            <p>Get access to the most sophisticated E-shopping experiance!</p>
+            <Formik>
+              {(form) => (
+                <Form>
+                  <input type="text" />
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </div>
