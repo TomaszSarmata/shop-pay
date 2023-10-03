@@ -63,14 +63,14 @@ export default function Signin() {
                   <LoginInput
                     type="text" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
                     name="login_email" //that will be set with the initial value
-                    placeholder="email"
+                    placeholder="Email Address"
                     icon="email" //that controls the icon that displays in the input
                     onChange={handleChange}
                   ></LoginInput>
                   <LoginInput
                     type="password" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
                     name="login_password" //that will be set with the initial value
-                    placeholder="password"
+                    placeholder="Password"
                     icon="password" //that controls the icon that displays in the input
                     onChange={handleChange}
                   ></LoginInput>
