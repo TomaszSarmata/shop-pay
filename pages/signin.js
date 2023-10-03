@@ -41,7 +41,13 @@ export default function Signin() {
           <div className={styles.login_form}>
             <h1>Sign in</h1>
             <p>Get access to the most sophisticated E-shopping experiance!</p>
-            <Formik>
+            <Formik
+              enableReinitialize
+              initialValues={{
+                login_email,
+                login_password,
+              }}
+            >
               {(form) => (
                 <Form>
                   <LoginInput
