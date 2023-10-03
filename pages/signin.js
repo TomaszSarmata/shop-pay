@@ -45,7 +45,7 @@ export default function Signin() {
               {(form) => (
                 <Form>
                   <LoginInput
-                    type="text"
+                    type="text" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
                     name="login_email" //that will be set with the initial value
                     placeholder="email"
                     icon="password" //that controls the icon that displays in the input
