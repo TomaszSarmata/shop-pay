@@ -29,7 +29,7 @@ export default function Signin() {
               <BiLeftArrowAlt></BiLeftArrowAlt>
             </div>
             <span>
-              We'd be happy to join us! <Link href="/">Go Store</Link>{" "}
+              We'd be happy if you join us! <Link href="/">Go Store</Link>{" "}
             </span>
           </div>
           <div className={styles.login_form}>
@@ -39,7 +39,8 @@ export default function Signin() {
               {(form) => (
                 <Form>
                   <LoginInput
-                    placeholder="password"
+                    type="text"
+                    placeholder="email"
                     icon="password"
                   ></LoginInput>
                 </Form>
