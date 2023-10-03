@@ -19,6 +19,12 @@ export default function Signin() {
   //destructuring below for ease of access
   const { login_email, login_password } = user;
 
+  const handleChange = (e) => {
+    const { name, value } = e.target; //we are going to grab the name and fill it with the value that the user is going to type in
+    setUser({ ...user, [name]: value }); //here we are leaving the user as it is but are changing the name to the value the user is providing.
+  };
+  console.log("user:", user);
+
   return (
     <>
       <Header country="UK"></Header>
@@ -40,8 +46,10 @@ export default function Signin() {
                 <Form>
                   <LoginInput
                     type="text"
+                    name="login_email" //that will be set with the initial value
                     placeholder="email"
-                    icon="password"
+                    icon="password" //that controls the icon that displays in the input
+                    onChange={handleChange}
                   ></LoginInput>
                 </Form>
               )}
