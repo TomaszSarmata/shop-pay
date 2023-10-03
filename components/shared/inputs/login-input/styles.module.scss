@@ -34,5 +34,15 @@
 }
 
 .error {
-  background: $error-color;
+  background: $light-error-color !important; //just to make sure it applies the color no matter what
+  margin-top: 5rem !important; //we will display the error message in the inputs element place  and push the  input element itself  below by 5 rem (as it will have the error class)
+  input {
+    &::placeholder {
+      color: #fff !important;
+    }
+  }
+  svg {
+    fill: white !important;
+    stroke: white !important;
+  }
 }
