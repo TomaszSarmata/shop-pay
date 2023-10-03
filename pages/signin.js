@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import styles from "../styles/signin.module.scss";
@@ -7,8 +7,10 @@ import Link from "next/link";
 import { Formik, Form } from "formik";
 import LoginInput from "../components/shared/inputs/login-input";
 
-export default function signin() {
+export default function Signin() {
   // TODO - change the static values for the country in the Header and the Footer
+  const [user, setUser] = useState("");
+
   return (
     <>
       <Header country="UK"></Header>
