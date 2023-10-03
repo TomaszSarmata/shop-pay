@@ -7,9 +7,15 @@ import Link from "next/link";
 import { Formik, Form } from "formik";
 import LoginInput from "../components/shared/inputs/login-input";
 
+//setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
+const initialValues = {
+  login_email: "",
+  login_password: "",
+};
+
 export default function Signin() {
   // TODO - change the static values for the country in the Header and the Footer
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(initialValues);
 
   return (
     <>
