@@ -16,6 +16,8 @@ const initialValues = {
 export default function Signin() {
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
+  //destructuring below for ease of access
+  const { login_email, login_password } = user;
 
   return (
     <>
