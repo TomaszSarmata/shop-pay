@@ -17,7 +17,7 @@ export default function LoginInput({ icon, placeholder, ...props }) {
       ) : (
         ""
       )}
-      <input type="text" placeholder={placeholder} />
+      <input type={field.type} placeholder={placeholder} />
     </div>
   );
 }
