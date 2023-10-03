@@ -5,6 +5,7 @@ import styles from "../styles/signin.module.scss";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import LoginInput from "../components/shared/inputs/login-input";
 
 //setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
@@ -18,6 +19,14 @@ export default function Signin() {
   const [user, setUser] = useState(initialValues);
   //destructuring below for ease of access
   const { login_email, login_password } = user;
+
+  //here we are going to declare our login validation
+  const loginValidation = Yup.object({
+    login_email: Yup.string()
+      .required("Email address is required")
+      .email("Please enter a valid email address"),
+    login_password: Yup.string().required("Please enter a password"),
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target; //we are going to grab the name and fill it with the value that the user is going to type in
@@ -47,6 +56,7 @@ export default function Signin() {
                 login_email,
                 login_password,
               }}
+              validationSchema={loginValidation}
             >
               {(form) => (
                 <Form>
