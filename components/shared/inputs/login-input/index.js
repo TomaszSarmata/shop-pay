@@ -5,7 +5,7 @@ import { SiMinutemailer } from "react-icons/si";
 import { useField } from "formik";
 
 export default function LoginInput({ icon, placeholder, ...props }) {
-  const [field, meta] = useField();
+  const [field, meta] = useField(props);
   return (
     <div className={styles.input}>
       {icon == "user" ? (
