@@ -85,16 +85,18 @@ export default function Signin({ providers }) {
 
             <div className={styles.login_socials}>
               <span className={styles.or}>Or continue with</span>
-              {providers.map((provider) => (
-                <div key={provider.name}>
-                  <button
-                    className={styles.social_btn}
-                    onClick={() => signIn(provider.id)}
-                  >
-                    Sign in with {provider.name}
-                  </button>
-                </div>
-              ))}
+              <div className={styles.login_socials_wrap}>
+                {providers.map((provider) => (
+                  <div key={provider.name}>
+                    <button
+                      className={styles.social_btn}
+                      onClick={() => signIn(provider.id)}
+                    >
+                      Sign in with {provider.name}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
