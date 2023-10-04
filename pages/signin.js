@@ -92,6 +92,7 @@ export default function Signin({ providers }) {
                       className={styles.social_btn}
                       onClick={() => signIn(provider.id)}
                     >
+                      <img src={`icons/${provider.name}.png`} alt="" />
                       Sign in with {provider.name}
                     </button>
                   </div>
