@@ -8,6 +8,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import LoginInput from "../components/shared/inputs/login-input";
 import CircleIconBtn from "../components/shared/buttons/circle-icon-btn";
+import { getProviders, signIn } from "next-auth/react";
 
 //setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
 const initialValues = {
@@ -15,7 +16,7 @@ const initialValues = {
   login_password: "",
 };
 
-export default function Signin() {
+export default function Signin({ providers }) {
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
   //destructuring below for ease of access
@@ -33,8 +34,7 @@ export default function Signin() {
     const { name, value } = e.target; //we are going to grab the name and fill it with the value that the user is going to type in
     setUser({ ...user, [name]: value }); //here we are leaving the user as it is but are changing the name to the value the user is providing.
   };
-  console.log("user:", user);
-
+  console.log(providers);
   return (
     <>
       <Header country="UK"></Header>
@@ -82,10 +82,51 @@ export default function Signin() {
                 </Form>
               )}
             </Formik>
+
+            <div className={styles.login_socials}>
+              <span className={styles.or}>Or continue with</span>
+              {providers.map((provider) => (
+                <div key={provider.name}>
+                  <button
+                    className={styles.social_btn}
+                    onClick={() => signIn(provider.id)}
+                  >
+                    Sign in with {provider.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* <div className={styles.relative}>
+              <div className={styles.line}></div>
+              <span className={styles.continue}>Or continue with</span>
+            </div>
+
+            {providers.map((provider) => (
+              <div key={provider.id} className={styles.provider_container}>
+                <div className={styles.provider_wrapper}>
+                  <span className={styles.provider_wrapper_icon}>
+                    <img
+                      src={`/icons/${provider.name}.png`}
+                      alt="provider-icon"
+                    />
+                  </span>
+                  <h3>Sign in with {provider.name}</h3>
+                </div>
+              </div>
+            ))} */}
           </div>
         </div>
       </div>
       <Footer country="UK"></Footer>
     </>
   );
+}
+
+//here we want to map through our nextauth providers that are in the array in our api endpoint. We want to make the properties on the back end endpoint available at the front of our application
+export async function getServerSideProps(context) {
+  const providers = Object.values(await getProviders()); //this is how you change the object to an array Object.values()
+  return {
+    props: { providers }, //always remember to return when doing getSeverSideProps
+  }; //now we can extract it in the component at the top in the props {providers}
 }
