@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import LoginInput from "../components/shared/inputs/login-input";
+import CircleIconBtn from "../components/shared/buttons/circle-icon-btn";
 
 //setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
 const initialValues = {
@@ -74,6 +75,7 @@ export default function Signin() {
                     icon="password" //that controls the icon that displays in the input
                     onChange={handleChange}
                   ></LoginInput>
+                  <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
                 </Form>
               )}
             </Formik>
