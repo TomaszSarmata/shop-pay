@@ -96,25 +96,6 @@ export default function Signin({ providers }) {
                 </div>
               ))}
             </div>
-
-            {/* <div className={styles.relative}>
-              <div className={styles.line}></div>
-              <span className={styles.continue}>Or continue with</span>
-            </div>
-
-            {providers.map((provider) => (
-              <div key={provider.id} className={styles.provider_container}>
-                <div className={styles.provider_wrapper}>
-                  <span className={styles.provider_wrapper_icon}>
-                    <img
-                      src={`/icons/${provider.name}.png`}
-                      alt="provider-icon"
-                    />
-                  </span>
-                  <h3>Sign in with {provider.name}</h3>
-                </div>
-              </div>
-            ))} */}
           </div>
         </div>
       </div>
