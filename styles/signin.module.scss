@@ -108,3 +108,21 @@
     }
   }
 }
+
+.social_btn {
+  border: solid 1px #66666683;
+  outline: none;
+  font-size: 18px;
+  width: 290px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  gap: 10px;
+  background: transparent;
+  cursor: pointer;
+  &:hover {
+    background: lightgray;
+  }
+}
