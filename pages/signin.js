@@ -76,6 +76,9 @@ export default function Signin() {
                     onChange={handleChange}
                   ></LoginInput>
                   <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
+                  <div className={styles.forgot}>
+                    <Link href="/forget">Forgot password?</Link>
+                  </div>
                 </Form>
               )}
             </Formik>
