@@ -27,6 +27,12 @@ handler.post(async (req, res) => {
           "This email is already linked to another user. If you think you have registered previously, try logging in using third party provider (i.e. Google, Twitter, Github)",
       });
     }
+    //next we are going to check if the password is at the right length
+    if (password.lenght < 6) {
+      return res.status(400).json({
+        message: "Your password must be at least 6 characters long",
+      });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
