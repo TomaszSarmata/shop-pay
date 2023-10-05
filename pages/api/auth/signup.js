@@ -2,6 +2,7 @@ import nc from "next-connect";
 import db from "../../../utils/db";
 import { validateEmail } from "../../../utils/validation";
 import User from "../../../models/User";
+import bcrypt from "bcrypt";
 
 //here we are creating our api endpoin that will handle the user imput from the signup option. We have to grab / extract the user name, email and password and put in place validation and sanitation checks to make sure our database is filled with the right data.
 
@@ -35,7 +36,7 @@ handler.post(async (req, res) => {
         message: "Your password must be at least 6 characters long",
       });
     }
-    //now we have to make sure that every password that gets through this api and is passed to our db gets encrypted
+    //now we have to make sure that every password that gets through this api and is passed to our db gets encrypted. We are going to use bcrypt package
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
