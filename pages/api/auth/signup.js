@@ -43,6 +43,10 @@ handler.post(async (req, res) => {
     const newUser = new User({ name, email, password: cryptedPassword });
     const addedUser = await newUser.save(); //save() is a function from mongoose that will register all this new data of the newUser in our db
     //now as the next step in our workflow, we are going to send an email to our user after successfull registration in our db. The email will contain a link that the user will have to click to activate the account. The link will be encrypted and will contain the user id. We are going to use the user id info to determine whether or not the link was used and if so we are going to toggle verified email to true. To convert user id into a link we need to install json token.
+    //we are going to write a function that will do the whole work for us
+    const activation_token = createActivationToken({
+      id: addedUser._id.toString(),
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
