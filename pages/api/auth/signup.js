@@ -12,6 +12,7 @@ handler.post(async (req, res) => {
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Please fill in all fields" });
     }
+    //here we are going to validate if the email is correct using the function we have created in our utils/validation.js file
     if (!validateEmail(email)) {
       return res.status(400).json({
         message: "Invalid email",
