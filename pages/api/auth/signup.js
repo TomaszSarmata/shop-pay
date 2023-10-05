@@ -28,7 +28,7 @@ handler.post(async (req, res) => {
       });
     }
     //next we are going to check if the password is at the right length
-    if (password.lenght < 6) {
+    if (password.length < 6) {
       return res.status(400).json({
         message: "Your password must be at least 6 characters long",
       });
