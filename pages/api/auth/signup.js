@@ -3,6 +3,8 @@ import db from "../../../utils/db";
 import { validateEmail } from "../../../utils/validation";
 import User from "../../../models/User";
 
+//here we are creating our api endpoin that will handle the user imput from the signup option. We have to grab / extract the user name, email and password and put in place validation and sanitation checks to make sure our database is filled with the right data.
+
 const handler = nc();
 
 handler.post(async (req, res) => {
@@ -33,6 +35,7 @@ handler.post(async (req, res) => {
         message: "Your password must be at least 6 characters long",
       });
     }
+    //now we have to make sure that every password that gets through this api and is passed to our db gets encrypted
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
