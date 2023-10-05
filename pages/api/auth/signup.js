@@ -1,6 +1,7 @@
 import nc from "next-connect";
 import db from "../../../utils/db";
 import { validateEmail } from "../../../utils/validation";
+import User from "../../../models/User";
 
 const handler = nc();
 
@@ -16,6 +17,13 @@ handler.post(async (req, res) => {
     if (!validateEmail(email)) {
       return res.status(400).json({
         message: "Invalid email",
+      });
+    }
+    //here we are going to check our db to see if the email already exists and if so we are going to send an email to the user informing them the email is already taken. To do that we will have to use User model so need to import that
+    const user = await User.findOne({ email: email }); //so that will somehow run through our db and search for the same email
+    if (user) {
+      return res.status(400).json({
+        message: "This email is already linked to another user",
       });
     }
   } catch (error) {
