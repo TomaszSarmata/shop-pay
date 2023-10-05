@@ -35,6 +35,26 @@ export default function Signin({ providers }) {
     login_password: Yup.string().required("Please enter a password"),
   });
 
+  const registerValidation = Yup.object({
+    name: Yup.string()
+      .required("Full Name is required")
+      .min(2, "First name must be between 2 and 16 characters")
+      .max(16, "First name must be between 2 and 16 characters")
+      .matches(/^[aA-zZ]/, "Numbers and special characters are not allowed"),
+    email: Yup.string()
+      .required("Email address is required")
+      .email("Please enter a valid email address"),
+    password: Yup.string()
+      .required(
+        "Please enter a combination of six numbers or letters. Your password must include at least one special character (i.e. ! or &"
+      )
+      .min(6, "Password must be at least 6 characters long")
+      .max(36, "Password must be less than 36 characters long"),
+    conf_password: Yup.string()
+      .required("Confirm your password")
+      .oneOf([Yup.ref("password")], "Passwords must match"),
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target; //we are going to grab the name and fill it with the value that the user is going to type in
     setUser({ ...user, [name]: value }); //here we are leaving the user as it is but are changing the name to the value the user is providing.
@@ -118,7 +138,7 @@ export default function Signin({ providers }) {
                 password,
                 conf_password,
               }}
-              validationSchema={loginValidation}
+              validationSchema={registerValidation}
             >
               {(form) => (
                 <Form>
