@@ -37,6 +37,11 @@ handler.post(async (req, res) => {
       });
     }
     //now we have to make sure that every password that gets through this api and is passed to our db gets encrypted. We are going to use bcrypt package
+    const cryptedPassword = await bcrypt.hash(password, 12); //12 stands for the round of encryption
+
+    //now we can define our user again with all sanitised and encrypted info and send it to our db
+    const newUser = new User({ name, email, password: cryptedPassword });
+    await newUser.save(); //save() is a function from mongoose that will register all this new data of the newUser in our db
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
