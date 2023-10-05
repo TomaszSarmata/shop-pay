@@ -14,7 +14,7 @@ import { getProviders, signIn } from "next-auth/react";
 const initialValues = {
   login_email: "",
   login_password: "",
-  full_name: "",
+  name: "",
   email: "",
   password: "",
   conf_password: "",
@@ -24,14 +24,8 @@ export default function Signin({ providers }) {
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
   //destructuring below for ease of access
-  const {
-    login_email,
-    login_password,
-    full_name,
-    email,
-    password,
-    conf_password,
-  } = user;
+  const { login_email, login_password, name, email, password, conf_password } =
+    user;
 
   //here we are going to declare our login validation
   const loginValidation = Yup.object({
@@ -119,7 +113,7 @@ export default function Signin({ providers }) {
             <Formik
               enableReinitialize
               initialValues={{
-                full_name,
+                name,
                 email,
                 password,
                 conf_password,
@@ -130,8 +124,8 @@ export default function Signin({ providers }) {
                 <Form>
                   <LoginInput
                     type="text"
-                    name="full_name"
-                    placeholder="Full Name"
+                    name="name"
+                    placeholder="Name"
                     icon="user"
                     onChange={handleChange}
                   ></LoginInput>
