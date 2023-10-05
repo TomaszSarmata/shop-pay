@@ -101,6 +101,43 @@ export default function Signin({ providers }) {
             </div>
           </div>
         </div>
+        <div className={styles.login_container}>
+          <div className={styles.login_form}>
+            <h1>Sign up</h1>
+            <p>Get access to the most sophisticated E-shopping experiance!</p>
+            <Formik
+              enableReinitialize
+              initialValues={{
+                login_email,
+                login_password,
+              }}
+              validationSchema={loginValidation}
+            >
+              {(form) => (
+                <Form>
+                  <LoginInput
+                    type="text" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
+                    name="login_email" //that will be set with the initial value
+                    placeholder="Email Address"
+                    icon="email" //that controls the icon that displays in the input
+                    onChange={handleChange}
+                  ></LoginInput>
+                  <LoginInput
+                    type="password" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
+                    name="login_password" //that will be set with the initial value
+                    placeholder="Password"
+                    icon="password" //that controls the icon that displays in the input
+                    onChange={handleChange}
+                  ></LoginInput>
+                  <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
+                  <div className={styles.forgot}>
+                    <Link href="/forget">Forgot password?</Link>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </div>
       </div>
       <Footer country="UK"></Footer>
     </>
