@@ -125,7 +125,7 @@ export default function Signin({ providers }) {
                   <LoginInput
                     type="text"
                     name="name"
-                    placeholder="Name"
+                    placeholder="Full Name"
                     icon="user"
                     onChange={handleChange}
                   ></LoginInput>
