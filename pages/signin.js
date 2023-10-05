@@ -46,7 +46,7 @@ export default function Signin({ providers }) {
       .email("Please enter a valid email address"),
     password: Yup.string()
       .required(
-        "Please enter a combination of six numbers or letters. Your password must include at least one special character (i.e. ! or &"
+        "Shuld be a combination of six numbers or letters. Must include at least one special character (i.e. ! or &)"
       )
       .min(6, "Password must be at least 6 characters long")
       .max(36, "Password must be less than 36 characters long"),
