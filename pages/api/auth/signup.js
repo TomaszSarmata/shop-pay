@@ -23,7 +23,8 @@ handler.post(async (req, res) => {
     const user = await User.findOne({ email: email }); //so that will somehow run through our db and search for the same email
     if (user) {
       return res.status(400).json({
-        message: "This email is already linked to another user",
+        message:
+          "This email is already linked to another user. If you think you have registered previously, try logging in using third party provider (i.e. Google, Twitter, Github)",
       });
     }
   } catch (error) {
