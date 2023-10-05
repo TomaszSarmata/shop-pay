@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-//we are going to create the schema and define the properties of the user
+//we are going to create the schema and define the properties of the user. Effectively we are creating a user model profile that will feed to our database
 
 const userSchema = new mongoose.Schema(
   {
