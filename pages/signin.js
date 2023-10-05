@@ -24,7 +24,14 @@ export default function Signin({ providers }) {
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
   //destructuring below for ease of access
-  const { login_email, login_password } = user;
+  const {
+    login_email,
+    login_password,
+    full_name,
+    email,
+    password,
+    conf_password,
+  } = user;
 
   //here we are going to declare our login validation
   const loginValidation = Yup.object({
