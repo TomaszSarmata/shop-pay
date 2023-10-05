@@ -122,23 +122,34 @@ export default function Signin({ providers }) {
               {(form) => (
                 <Form>
                   <LoginInput
-                    type="text" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
-                    name="login_email" //that will be set with the initial value
-                    placeholder="Email Address"
-                    icon="email" //that controls the icon that displays in the input
+                    type="text"
+                    name="full_name"
+                    placeholder="Full Name"
+                    icon="user"
                     onChange={handleChange}
                   ></LoginInput>
                   <LoginInput
-                    type="password" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
-                    name="login_password" //that will be set with the initial value
-                    placeholder="Password"
-                    icon="password" //that controls the icon that displays in the input
+                    type="text"
+                    name="email"
+                    placeholder="Email Address"
+                    icon="email"
                     onChange={handleChange}
                   ></LoginInput>
-                  <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
-                  <div className={styles.forgot}>
-                    <Link href="/forget">Forgot password?</Link>
-                  </div>
+                  <LoginInput
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    icon="password"
+                    onChange={handleChange}
+                  ></LoginInput>
+                  <LoginInput
+                    type="password"
+                    name="conf_password"
+                    placeholder="Re-type Password"
+                    icon="password"
+                    onChange={handleChange}
+                  ></LoginInput>
+                  <CircleIconBtn type="submit" text="Sign up"></CircleIconBtn>
                 </Form>
               )}
             </Formik>
