@@ -3,6 +3,7 @@ import db from "../../../utils/db";
 import { validateEmail } from "../../../utils/validation";
 import User from "../../../models/User";
 import bcrypt from "bcrypt";
+import { createActivationToken } from "../../../utils/tokens";
 
 //here we are creating our api endpoin that will handle the user imput from the signup option. We have to grab / extract the user name, email and password and put in place validation and sanitation checks to make sure our database is filled with the right data.
 
@@ -43,10 +44,12 @@ handler.post(async (req, res) => {
     const newUser = new User({ name, email, password: cryptedPassword });
     const addedUser = await newUser.save(); //save() is a function from mongoose that will register all this new data of the newUser in our db
     //now as the next step in our workflow, we are going to send an email to our user after successfull registration in our db. The email will contain a link that the user will have to click to activate the account. The link will be encrypted and will contain the user id. We are going to use the user id info to determine whether or not the link was used and if so we are going to toggle verified email to true. To convert user id into a link we need to install json token.
-    //we are going to write a function that will do the whole work for us
+    //we are going to write a function that will do the whole work for us. We need to go to the utils folder and create a helper function called createActivationToken
     const activation_token = createActivationToken({
       id: addedUser._id.toString(),
     });
+    console.log(activation_token);
+    res.send(activation_token);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
