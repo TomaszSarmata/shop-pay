@@ -41,7 +41,8 @@ handler.post(async (req, res) => {
 
     //now we can define our user again with all sanitised and encrypted info and send it to our db
     const newUser = new User({ name, email, password: cryptedPassword });
-    await newUser.save(); //save() is a function from mongoose that will register all this new data of the newUser in our db
+    const addedUser = await newUser.save(); //save() is a function from mongoose that will register all this new data of the newUser in our db
+    res.send(addedUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
