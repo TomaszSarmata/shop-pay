@@ -1,6 +1,6 @@
 import nc from "next-connect";
 import db from "../../../utils/db";
-import validateEmail from "../../../utils/validation";
+import { validateEmail } from "../../../utils/validation";
 
 const handler = nc();
 
