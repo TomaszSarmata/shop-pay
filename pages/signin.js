@@ -14,6 +14,10 @@ import { getProviders, signIn } from "next-auth/react";
 const initialValues = {
   login_email: "",
   login_password: "",
+  full_name: "",
+  email: "",
+  password: "",
+  conf_password: "",
 };
 
 export default function Signin({ providers }) {
@@ -108,8 +112,10 @@ export default function Signin({ providers }) {
             <Formik
               enableReinitialize
               initialValues={{
-                login_email,
-                login_password,
+                full_name,
+                email,
+                password,
+                conf_password,
               }}
               validationSchema={loginValidation}
             >
