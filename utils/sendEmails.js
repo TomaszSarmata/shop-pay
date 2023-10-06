@@ -42,7 +42,7 @@ export const sendEmail = (to, url, txt, subject) => {
     from: SENDER_EMAIL_ADDRESS,
     to: to, //we have that as a parameter so the value will change as we will be passing that to our function
     subject: subject,
-    html: activateEmailTemplate,
+    html: activateEmailTemplate(),
   };
   smtpTransport.sendMail(mailOptions, (error, infos) => {
     if (err) return err;
