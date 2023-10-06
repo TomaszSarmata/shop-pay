@@ -43,7 +43,7 @@ export const sendEmail = (to, url, txt, subject) => {
     subject: subject,
     html: "",
   };
-  smtpTransport.sendEmail(mailOptions, (error, infos) => {
+  smtpTransport.sendMail(mailOptions, (error, infos) => {
     if (err) return err;
     return infos;
   });
