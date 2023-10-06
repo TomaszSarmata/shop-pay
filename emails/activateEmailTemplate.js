@@ -153,7 +153,7 @@ export const activateEmailTemplate = (to, url) => {
   </table></td>
   </tr>
   <tr>
-  <td align="center" class="es-m-p0r" style="padding:0;Margin:0;padding-top:5px;padding-right:40px;padding-bottom:5px"><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px">Thank you for choosing SHOPPAY.</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px"><br></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px">Please confirm that ${to} is your email address by clicking on the button below or use this link user_link within&nbsp;<strong>48 hours</strong>.</p></td>
+  <td align="center" class="es-m-p0r" style="padding:0;Margin:0;padding-top:5px;padding-right:40px;padding-bottom:5px"><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px">Thank you for choosing SHOPPAY.</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px"><br></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;line-height:24px;letter-spacing:0;color:#333333;font-size:16px">Please confirm that ${to} is your email address by clicking on the button below or use this link ${url} within&nbsp;<strong>48 hours</strong>.</p></td>
   </tr>
   <tr>
   <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-bottom:10px;padding-top:10px;font-size:0">
@@ -164,7 +164,7 @@ export const activateEmailTemplate = (to, url) => {
   </table></td>
   </tr>
   <tr>
-  <td align="center" class="es-m-txt-l" style="padding:0;Margin:0;padding-bottom:10px;padding-top:10px"><span class="es-button-border" style="border-style:solid;border-color:#999999;background:#ffffff;border-width:1px;display:inline-block;border-radius:0px;width:auto"><a class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none !important;mso-line-height-rule:exactly;color:#666666;font-size:16px;padding:10px 30px 10px 30px;display:inline-block;background:#ffffff;border-radius:0px;font-family:Montserrat, sans-serif;font-weight:normal;font-style:normal;line-height:19px !important;width:auto;text-align:center;letter-spacing:0;mso-padding-alt:0;mso-border-alt:10px solid #FEF3E6;border-color:#ffffff" href="user_link">Verify my email</a></span></td>
+  <td align="center" class="es-m-txt-l" style="padding:0;Margin:0;padding-bottom:10px;padding-top:10px"><span class="es-button-border" style="border-style:solid;border-color:#999999;background:#ffffff;border-width:1px;display:inline-block;border-radius:0px;width:auto"><a class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none !important;mso-line-height-rule:exactly;color:#666666;font-size:16px;padding:10px 30px 10px 30px;display:inline-block;background:#ffffff;border-radius:0px;font-family:Montserrat, sans-serif;font-weight:normal;font-style:normal;line-height:19px !important;width:auto;text-align:center;letter-spacing:0;mso-padding-alt:0;mso-border-alt:10px solid #FEF3E6;border-color:#ffffff" href=${url}>Verify my email</a></span></td>
   </tr>
   </table></td>
   </tr>
