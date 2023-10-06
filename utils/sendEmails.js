@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
+import { activateEmailTemplate } from "../emails/activateEmailTemplate";
 
 const { OAuth2 } = google.auth; //extracting auth2 from google package
 const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
@@ -41,7 +42,7 @@ export const sendEmail = (to, url, txt, subject) => {
     from: SENDER_EMAIL_ADDRESS,
     to: to, //we have that as a parameter so the value will change as we will be passing that to our function
     subject: subject,
-    html: "",
+    html: activateEmailTemplate,
   };
   smtpTransport.sendMail(mailOptions, (error, infos) => {
     if (err) return err;
