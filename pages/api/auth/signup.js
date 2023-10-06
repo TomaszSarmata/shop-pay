@@ -50,7 +50,7 @@ handler.post(async (req, res) => {
     });
     //here we are going to create an actual url link for the user
     const url = `${process.env.BASE_URL}/activate/${activation_token}`; //BASE_URL will change in the production environment so we have to just go to .env and create it there
-    res.send(url);
+    sendEmail(email, url, "", "Activate your account.");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
