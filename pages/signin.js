@@ -18,7 +18,8 @@ const initialValues = {
   email: "",
   password: "",
   conf_password: "",
-  message: "",
+  success: "",
+  error: "",
 };
 
 export default function Signin({ providers }) {
@@ -33,7 +34,8 @@ export default function Signin({ providers }) {
     email,
     password,
     conf_password,
-    message,
+    success,
+    error,
   } = user;
 
   //here we are going to declare our login validation
@@ -76,11 +78,11 @@ export default function Signin({ providers }) {
         email,
         password,
       }); //here we are hitting the endpoint handling the signup to provide the info from the input fields for the api to handle the registration.
-      setUser({ ...user, message: data.message }); //in case we would need any info from the endpint. If its successfull we gonna show it  to the user.
+      setUser({ ...user, error: "", success: data.message }); //in case we would need any info from the endpint. If its successfull we gonna show it  to the user.
       setLoadingState(false); //that will take off loading state on completion of fetching
     } catch (error) {
       setLoadingState(false); //as you want to display the error message
-      setUser({ ...user, message: error.response.data.message }); //so this error comes from catch error in this try catch statement, response is just an object on it, and than we have further object called data and then message that come from our signup.js from try catch statement in there. So effectively we are passing the error message between the components and setting the message to the error message we are getting in child component
+      setUser({ ...user, success: "", error: error.response.data.message }); //so this error comes from catch error in this try catch statement, response is just an object on it, and than we have further object called data and then message that come from our signup.js from try catch statement in there. So effectively we are passing the error message between the components and setting the message to the error message we are getting in child component
     }
   };
 
@@ -131,7 +133,8 @@ export default function Signin({ providers }) {
                 </Form>
               )}
             </Formik>
-            <div>{message && <span>{message}</span>}</div>
+            <div>{success && <span>{success}</span>}</div>
+            <div>{error && <span>{error}</span>}</div>
 
             <div className={styles.login_socials}>
               <span className={styles.or}>Or continue with</span>
