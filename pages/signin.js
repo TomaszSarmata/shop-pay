@@ -18,14 +18,23 @@ const initialValues = {
   email: "",
   password: "",
   conf_password: "",
+  message: "",
 };
 
 export default function Signin({ providers }) {
+  const [loadingState, setLoadingState] = useState(false);
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
   //destructuring below for ease of access
-  const { login_email, login_password, name, email, password, conf_password } =
-    user;
+  const {
+    login_email,
+    login_password,
+    name,
+    email,
+    password,
+    conf_password,
+    message,
+  } = user;
 
   //here we are going to declare our login validation
   const loginValidation = Yup.object({
@@ -59,7 +68,16 @@ export default function Signin({ providers }) {
     const { name, value } = e.target; //we are going to grab the name and fill it with the value that the user is going to type in
     setUser({ ...user, [name]: value }); //here we are leaving the user as it is but are changing the name to the value the user is providing.
   };
-  console.log(providers);
+  const signUpHandler = async () => {
+    try {
+      setLoadingState(true); //that will show loading state during fetching
+      setLoadingState(false); //that will take off loading state on completion of fetching
+    } catch (error) {
+      setLoadingState(false); //as you want to display the error message
+      setUser({ ...user, message: error.response.data.message }); //so this error comes from catch error in this try catch statement, response is just an object on it, and than we have further object called data and then message that come from our signup.js from try catch statement in there. So effectively we are passing the error message between the components and setting the message to the error message we are getting in child component
+    }
+  };
+
   return (
     <>
       <Header country="UK"></Header>
@@ -139,6 +157,9 @@ export default function Signin({ providers }) {
                 conf_password,
               }}
               validationSchema={registerValidation}
+              onSubmit={() => {
+                signUpHandler();
+              }}
             >
               {(form) => (
                 <Form>
