@@ -71,6 +71,7 @@ export default function Signin({ providers }) {
   const signUpHandler = async () => {
     try {
       setLoadingState(true); //that will show loading state during fetching
+      const { data } = await axios.post("./api/auth/signup"); //here we are hitting the endpoint handling the signup to get some data back on the  successfull signup.
       setLoadingState(false); //that will take off loading state on completion of fetching
     } catch (error) {
       setLoadingState(false); //as you want to display the error message
