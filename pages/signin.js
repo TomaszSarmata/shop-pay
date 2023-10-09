@@ -131,6 +131,7 @@ export default function Signin({ providers }) {
                 </Form>
               )}
             </Formik>
+            <div>{message && <span>{message}</span>}</div>
 
             <div className={styles.login_socials}>
               <span className={styles.or}>Or continue with</span>
