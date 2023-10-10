@@ -210,8 +210,10 @@ export default function Signin({ providers }) {
                 </Form>
               )}
             </Formik>
-            <div>{success && <span>{success}</span>}</div>
-            <div>{error && <span>{error}</span>}</div>
+            <div className={styles.seccess}>
+              {success && <span>{success}</span>}
+            </div>
+            <div className={styles.error}>{error && <span>{error}</span>}</div>
           </div>
         </div>
       </div>
