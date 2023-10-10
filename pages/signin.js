@@ -11,6 +11,7 @@ import CircleIconBtn from "../components/shared/buttons/circle-icon-btn";
 import { getProviders, signIn } from "next-auth/react";
 import axios from "axios";
 import DotsLoader from "../components/shared/loaders/dot-loader";
+import Router from "next/router";
 
 //setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
 const initialValues = {
@@ -84,6 +85,9 @@ export default function Signin({ providers }) {
 
       setUser({ ...user, error: "", success: data.message }); //in case we would need any info from the endpint. If its successfull we gonna show it  to the user.
       setLoadingState(false); //that will take off loading state on completion of fetching
+      setTimeout(() => {
+        Router.push("/");
+      }, 2000);
     } catch (error) {
       setLoadingState(false); //as you want to display the error message
       console.log("here error", error);
