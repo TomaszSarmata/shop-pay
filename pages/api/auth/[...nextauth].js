@@ -7,10 +7,40 @@ import TwitterProvider from "next-auth/providers/twitter";
 import Auth0Provider from "next-auth/providers/auth0";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "./lib/mongodb";
+import CredentialsProvider from "next-auth/providers/credentials";
+import User from "../../../models/User";
+import bcrypt from "bcrypt";
 
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   providers: [
+    CredentialsProvider({
+      // The name to display on the sign in form (e.g. "Sign in with...")
+      name: "Credentials",
+      // `credentials` is used to generate a form on the sign in page.
+      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+      // e.g. domain, username, password, 2FA token, etc.
+      // You can pass any HTML attribute to the <input> tag through the object.
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        // Add logic here to look up the user from the credentials supplied
+        const email = credentials.email;
+        const password = credentials.password;
+        //here we are going to go to our database and find the user with the email and password that was entered. If it exists we will return the user object if it doesnt we will advise the user to check their details and perhaps sign up.
+        const user = await User.findOne({ email });
+
+        if (user) {
+          return SignInUser({ password, user }); //we get the user from User.findOne and the password is from the credentials object
+        } else {
+          throw new Error("This email is not registered");
+
+          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        }
+      },
+    }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
@@ -44,3 +74,15 @@ export default NextAuth({
   },
   secret: process.env.JWT_SECRET, //JWT_SECRET is set up in the .env file
 });
+
+const SignInUser = async ({ password, user }) => {
+  if (!user.password) {
+    throw new Error("Please enter your password");
+  }
+  //here we are going to compare the password that was entered with the password that is stored in the database. But as we have it encrypted we need to decrypt it first.
+  const testPassword = await bcrypt.compare(password, user.password); //if it matches it will return true if not it will return false
+  if (!testPassword) {
+    throw new Error("Wrong email or password");
+  }
+  return user;
+};
