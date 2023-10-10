@@ -10,6 +10,8 @@ import clientPromise from "./lib/mongodb";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../models/User";
 import bcrypt from "bcrypt";
+import db from "../../../utils/db";
+db.connectDb();
 
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
