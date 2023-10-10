@@ -10,6 +10,7 @@ import LoginInput from "../components/shared/inputs/login-input";
 import CircleIconBtn from "../components/shared/buttons/circle-icon-btn";
 import { getProviders, signIn } from "next-auth/react";
 import axios from "axios";
+import DotsLoader from "../components/shared/loaders/dot-loader";
 
 //setting up initial value for the user, We are going to pass them as a initial value in the hook for the user
 const initialValues = {
@@ -93,6 +94,7 @@ export default function Signin({ providers }) {
   return (
     <>
       <Header country="UK"></Header>
+      <DotsLoader></DotsLoader>
       <div className={styles.login}>
         <div className={styles.login_container}>
           <div className={styles.login_header}>
