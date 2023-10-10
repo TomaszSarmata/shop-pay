@@ -90,8 +90,30 @@ export default function Signin({ providers }) {
       }, 2000);
     } catch (error) {
       setLoadingState(false); //as you want to display the error message
-      console.log("here error", error);
+
       setUser({ ...user, success: "", error: error.response.data.message }); //so this error comes from catch error in this try catch statement, response is just an object on it, and than we have further object called data and then message that come from our signup.js from try catch statement in there. So effectively we are passing the error message between the components and setting the message to the error message we are getting in child component
+    }
+  };
+
+  const signInHandler = async () => {
+    setLoadingState(true);
+    let options = {
+      redirect: false,
+      email: login_email, //you can't pass the login_email and login_password directly so we have to set their values to our email and password from credentials
+      password: login_password,
+    };
+    const res = await signIn("credentials", options);
+    setUser({
+      ...user,
+      success: "", //just to make sure there are no unexpected messages
+      error: "",
+    });
+    setLoadingState(false);
+    if (res?.error) {
+      setLoadingState(false);
+      setUser({ ...user, login_error: res?.error }); //optional chaining to make sure that if there is no res at all, the program does not come back with the undefined error
+    } else {
+      Router.push("/"); //after successful log in
     }
   };
 
@@ -120,6 +142,9 @@ export default function Signin({ providers }) {
                 login_password,
               }}
               validationSchema={loginValidation}
+              onSubmit={() => {
+                signInHandler();
+              }}
             >
               {(form) => (
                 <Form>
