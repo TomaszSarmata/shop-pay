@@ -23,6 +23,7 @@ const initialValues = {
   conf_password: "",
   success: "",
   error: "",
+  login_error: "",
 };
 
 export default function Signin({ providers }) {
@@ -39,6 +40,7 @@ export default function Signin({ providers }) {
     conf_password,
     success,
     error,
+    login_error,
   } = user;
 
   //here we are going to declare our login validation
@@ -163,6 +165,9 @@ export default function Signin({ providers }) {
                     onChange={handleChange}
                   ></LoginInput>
                   <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
+                  {login_error && (
+                    <span className={styles.error}>{login_error}</span>
+                  )}
                   <div className={styles.forgot}>
                     <Link href="/forget">Forgot password?</Link>
                   </div>
