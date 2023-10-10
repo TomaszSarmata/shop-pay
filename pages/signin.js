@@ -87,7 +87,13 @@ export default function Signin({ providers }) {
 
       setUser({ ...user, error: "", success: data.message }); //in case we would need any info from the endpint. If its successfull we gonna show it  to the user.
       setLoadingState(false); //that will take off loading state on completion of fetching
-      setTimeout(() => {
+      setTimeout(async () => {
+        let options = {
+          redirect: false,
+          email: email, //we have to change that to email as here we are registering from scratch so the value for the email comes from the user input
+          password: password, //same here we need password from the user input
+        };
+        const res = await signIn("credentials", options);
         Router.push("/");
       }, 2000);
     } catch (error) {
