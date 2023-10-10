@@ -94,7 +94,7 @@ export default function Signin({ providers }) {
   return (
     <>
       <Header country="UK"></Header>
-      <DotsLoader></DotsLoader>
+      <DotsLoader loading={loadingState}></DotsLoader>
       <div className={styles.login}>
         <div className={styles.login_container}>
           <div className={styles.login_header}>
