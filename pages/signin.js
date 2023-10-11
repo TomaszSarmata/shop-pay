@@ -160,7 +160,12 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
               }}
             >
               {(form) => (
-                <Form>
+                <Form method="post" action="/api/auth/signin/email">
+                  <input
+                    name="csrfToken"
+                    defaultValue={csrfToken}
+                    type="hidden"
+                  />
                   <LoginInput
                     type="text" //tht property will be passed through formik to the child (LoginInput) and set the value of type automatically
                     name="login_email" //that will be set with the initial value
