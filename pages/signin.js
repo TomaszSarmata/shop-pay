@@ -8,7 +8,12 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import LoginInput from "../components/shared/inputs/login-input";
 import CircleIconBtn from "../components/shared/buttons/circle-icon-btn";
-import { getProviders, signIn } from "next-auth/react";
+import {
+  getCsrfToken,
+  getProviders,
+  signIn,
+  getSession,
+} from "next-auth/react";
 import axios from "axios";
 import DotsLoader from "../components/shared/loaders/dot-loader";
 import Router from "next/router";
@@ -26,7 +31,7 @@ const initialValues = {
   login_error: "",
 };
 
-export default function Signin({ providers }) {
+export default function Signin({ providers, callbackUrl, csrfToken }) {
   const [loadingState, setLoadingState] = useState(false);
   // TODO - change the static values for the country in the Header and the Footer
   const [user, setUser] = useState(initialValues);
@@ -121,7 +126,7 @@ export default function Signin({ providers }) {
       setLoadingState(false);
       setUser({ ...user, login_error: res?.error }); //optional chaining to make sure that if there is no res at all, the program does not come back with the undefined error
     } else {
-      Router.push("/"); //after successful log in
+      return Router.push(callbackUrl || "/"); //after successful log in
     }
   };
 
@@ -269,8 +274,20 @@ export default function Signin({ providers }) {
 
 //here we want to map through our nextauth providers that are in the array in our api endpoint. We want to make the properties on the back end endpoint available at the front of our application
 export async function getServerSideProps(context) {
+  const { req, query } = context; //extracting both values
+  const session = await getSession({ req });
+  const { callbackUrl } = query; //getting the value of the callbackUrl from the query (url link)
+
+  if (session) {
+    return {
+      redirect: {
+        destination: callbackUrl,
+      },
+    };
+  }
+  const csrfToken = await getCsrfToken(context);
   const providers = Object.values(await getProviders()); //this is how you change the object to an array Object.values()
   return {
-    props: { providers }, //always remember to return when doing getSeverSideProps
+    props: { providers, csrfToken, callbackUrl }, //always remember to return when doing getSeverSideProps
   }; //now we can extract it in the component at the top in the props {providers}
 }
