@@ -67,6 +67,16 @@ export default NextAuth({
       issuer: process.env.AUTH0_ISSUER_BASE_URL,
     }),
   ],
+  callbacks: {
+    //first extracting session and token from our session
+    async session({ session, token }) {
+      let user = await User.findById(token.sub); //here we are getting the user from the database using the user model (sub is the id of the user that we have and is the info on the token)
+      //now we can take the session and add some stuff to it
+      session.user.id = token.sub || user._id.toString();
+      session.user.role = user.role || "user";
+      return session;
+    },
+  },
   //here we are sinply adding a page to the nextauth settings with the route /signin
   pages: {
     signIn: "/signin",
