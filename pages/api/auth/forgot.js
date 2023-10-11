@@ -17,7 +17,7 @@ handler.post(async (req, res) => {
     if (!user) {
       return res.json({ message: "This email does not exist." });
     }
-    const url = `${process.env.BASE_URL}/activate/${activation_token}`;
+    const url = `${process.env.BASE_URL}/auth/reset/${activation_token}`;
     sendEmail(email, url, "", "Activate your account.");
     await db.disconnectDb();
     res.json({
