@@ -38,3 +38,15 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   align-items: center;
   gap: 5px;
 }
+.error {
+  font-size: 14px;
+  color: $error-color;
+  max-width: 450px;
+  padding: 10px;
+}
+.success {
+  font-size: 14px;
+  color: $success-color;
+  max-width: 450px;
+  padding: 10px;
+}
