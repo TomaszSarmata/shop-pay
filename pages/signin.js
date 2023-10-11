@@ -184,17 +184,22 @@ export default function Signin({ providers }) {
             <div className={styles.login_socials}>
               <span className={styles.or}>Or continue with</span>
               <div className={styles.login_socials_wrap}>
-                {providers.map((provider) => (
-                  <div key={provider.name}>
-                    <button
-                      className={styles.social_btn}
-                      onClick={() => signIn(provider.id)}
-                    >
-                      <img src={`icons/${provider.name}.png`} alt="" />
-                      Sign in with {provider.name}
-                    </button>
-                  </div>
-                ))}
+                {providers.map((provider) => {
+                  if (provider.name == "Credentials") {
+                    return; //basically we are hiding this button from the list
+                  }
+                  return (
+                    <div key={provider.name}>
+                      <button
+                        className={styles.social_btn}
+                        onClick={() => signIn(provider.id)}
+                      >
+                        <img src={`icons/${provider.name}.png`} alt="" />
+                        Sign in with {provider.name}
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
