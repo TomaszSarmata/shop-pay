@@ -23,11 +23,16 @@ export default function Forgot() {
   });
   const forgotHandler = async () => {
     try {
+      setSuccess("");
+      setError("");
       setLoadingState(true);
       const { data } = await axios.post("/api/auth/forgot", { email });
       setSuccess(data.message);
       setLoadingState(false);
+      setEmail("");
     } catch (error) {
+      setSuccess("");
+      setError("");
       setLoadingState(false);
       setError(error.response.data.message);
     }
@@ -67,9 +72,13 @@ export default function Forgot() {
                   onChange={(e) => setEmail(e.target.value)}
                 ></LoginInput>
 
-                <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
-                {error && <span className={styles.error}>{error}</span>}
-                {success && <span className={styles.success}>{success}</span>}
+                <CircleIconBtn type="submit" text="Send link"></CircleIconBtn>
+                <div className={styles.success}>
+                  {success && <span>{success}</span>}
+                </div>
+                <div className={styles.error}>
+                  {error && <span>{error}</span>}
+                </div>
               </Form>
             )}
           </Formik>
