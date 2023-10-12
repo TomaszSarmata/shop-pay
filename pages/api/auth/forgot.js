@@ -16,7 +16,7 @@ handler.post(async (req, res) => {
     const { email } = req.body; //so thats coming from the browser or postman. So we gonna try to find the user with that email in our database.
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({ message: "This email does not exist." });
+      return res.status(400).json({ message: "This email is not registered." });
     }
     const user_id = createResetToken({ id: user._id.toString() });
     const url = `${process.env.BASE_URL}/auth/reset/${user_id}`;
