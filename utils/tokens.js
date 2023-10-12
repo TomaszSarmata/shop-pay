@@ -6,3 +6,9 @@ export const createActivationToken = (payload) => {
     expiresIn: "2d",
   }); //We get activation_token_secret from the .env file where we can use literally any pass
 };
+
+export const createResetToken = (payload) => {
+  return jwt.sign(payload, process.env.RESET_TOKEN_SECRET, {
+    expiresIn: "6h",
+  });
+};
