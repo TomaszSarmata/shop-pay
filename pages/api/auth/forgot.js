@@ -3,8 +3,9 @@ import db from "../../../utils/db";
 import { validateEmail } from "../../../utils/validation";
 import User from "../../../models/User";
 import bcrypt from "bcrypt";
-import { createActivationToken } from "../../../utils/tokens";
+import { createResetToken } from "../../../utils/tokens";
 import { sendEmail } from "../../../utils/sendEmails";
+import resetPasswordEmailTemplate from "../../../emails/resetPasswordEmailTemplate";
 
 const handler = nc();
 
@@ -19,7 +20,13 @@ handler.post(async (req, res) => {
     }
     const user_id = createResetToken({ id: user._id.toString() });
     const url = `${process.env.BASE_URL}/auth/reset/${user_id}`;
-    sendEmail(email, url, "", "Activate your account.");
+    sendEmail(
+      email,
+      url,
+      "",
+      "Reset Your Password.",
+      resetPasswordEmailTemplate
+    );
     await db.disconnectDb();
     res.json({
       message: `Success! Please check your email to activate your account. If you don't see the email, please check your spam folder.`,
