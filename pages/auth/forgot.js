@@ -8,6 +8,8 @@ import LoginInput from "../../components/shared/inputs/login-input";
 import { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import DotsLoader from "../../components/shared/loaders/dot-loader";
 
 export default function Forgot() {
   const [email, setEmail] = useState("");
@@ -19,9 +21,20 @@ export default function Forgot() {
       .required("Email address is required")
       .email("Please enter a valid email address"),
   });
-  const forgotHandler = async () => {};
+  const forgotHandler = async () => {
+    try {
+      setLoadingState(true);
+      const { data } = await axios.post("/api/auth/forgot", { email });
+      setSuccess(data.message);
+      setLoadingState(false);
+    } catch (error) {
+      setLoadingState(false);
+      setError(error.response.data.message);
+    }
+  };
   return (
     <>
+      {loadingState && <DotsLoader></DotsLoader>}
       <Header country="UK"></Header>
       <div className={styles.forgot}>
         <div>
@@ -56,6 +69,7 @@ export default function Forgot() {
 
                 <CircleIconBtn type="submit" text="Sign in"></CircleIconBtn>
                 {error && <span className={styles.error}>{error}</span>}
+                {success && <span className={styles.success}>{success}</span>}
               </Form>
             )}
           </Formik>
