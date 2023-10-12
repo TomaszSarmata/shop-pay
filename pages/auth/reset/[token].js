@@ -10,9 +10,10 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import DotsLoader from "../../../components/shared/loaders/dot-loader";
+import jwt from "jsonwebtoken";
 
-export default function Reset({ token }) {
-  console.log("token", token);
+export default function Reset({ user_id }) {
+  console.log("user_id", user_id);
   const [password, setPassword] = useState("");
   const [conf_password, setConf_password] = useState("");
   const [error, setError] = useState("");
@@ -32,6 +33,7 @@ export default function Reset({ token }) {
       setLoadingState(true);
       setSuccess("");
       setError("");
+      const { data } = axios.put("/api/auth/reset", { user_id, password });
       setLoadingState(false);
     } catch (error) {
       setSuccess("");
@@ -103,9 +105,10 @@ export default function Reset({ token }) {
 export async function getServerSideProps(context) {
   const { query } = context;
   const token = query.token;
+  const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
   return {
     props: {
-      token,
+      user_id: user_id.id, //we are only going to need the id from the token
     },
   };
 }
