@@ -29,7 +29,7 @@ handler.post(async (req, res) => {
     );
     await db.disconnectDb();
     res.json({
-      message: `Success! Please check your email to activate your account. If you don't see the email, please check your spam folder.`,
+      message: `Success! Please check your email to reset your password. If you don't see the email, please check your spam folder.`,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
