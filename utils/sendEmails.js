@@ -23,7 +23,7 @@ const oauth2Client = new OAuth2(
 
 //now we can send an email
 
-export const sendEmail = (to, url, txt, subject) => {
+export const sendEmail = (to, url, txt, subject, template) => {
   oauth2Client.setCredentials({
     refresh_token: MAILING_SERVICE_REFRESH_TOKEN,
   });
@@ -44,7 +44,7 @@ export const sendEmail = (to, url, txt, subject) => {
     from: SENDER_EMAIL_ADDRESS,
     to: to, //we have that as a parameter so the value will change as we will be passing that to our function
     subject: subject,
-    html: activateEmailTemplate(to, url), //to links with the to parameter in the SendEmail function at the top of this file which we get the value of by calling SendEmail in the signup.js (it will be email from the req.body that we get from the user input). The url links with the url param at the top of this file which we again pass the value in the signup.js (tokenised url)
+    html: template(to, url), //to links with the to parameter in the SendEmail function at the top of this file which we get the value of by calling SendEmail in the signup.js (it will be email from the req.body that we get from the user input). The url links with the url param at the top of this file which we again pass the value in the signup.js (tokenised url)
   };
   smtpTransport.sendMail(mailOptions, (err, infos) => {
     console.log("here is the bit before the error");
