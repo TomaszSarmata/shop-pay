@@ -1,0 +1,33 @@
+import nc from "next-connect";
+import db from "../../../utils/db";
+import { validateEmail } from "../../../utils/validation";
+import User from "../../../models/User";
+import bcrypt from "bcrypt";
+import { createResetToken } from "../../../utils/tokens";
+import { sendEmail } from "../../../utils/sendEmails";
+import resetPasswordEmailTemplate from "../../../emails/resetPasswordEmailTemplate";
+
+const handler = nc();
+
+handler.put(async (req, res) => {
+  try {
+    await db.connectDb();
+
+    const { user_id, password } = req.body; //thats coming from our frontend
+    const user = await User.findById(user_id); //here we are checking if the user exists in our database
+    if (!user) {
+      return response
+        .status(400)
+        .json({ message: "This account does not exist." });
+    }
+
+    await db.disconnectDb();
+    res.json({
+      message: `Success! Please check your email to reset your password. If you don't see the email, please check your spam folder.`,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default handler;
