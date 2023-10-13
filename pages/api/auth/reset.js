@@ -20,11 +20,13 @@ handler.put(async (req, res) => {
         .status(400)
         .json({ message: "This account does not exist." });
     }
+    const cryptedPassword = await bcrypt.hash(password, 12); //here we are hashing the password
+    await User.updateOne({
+      password: cryptedPassword,
+    });
+    res.json({ email: user.email });
 
     await db.disconnectDb();
-    res.json({
-      message: `Success! Please check your email to reset your password. If you don't see the email, please check your spam folder.`,
-    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
