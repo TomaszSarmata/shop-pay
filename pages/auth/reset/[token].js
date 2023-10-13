@@ -33,7 +33,7 @@ export default function Reset({ user_id }) {
       setLoadingState(true);
       setSuccess("");
       setError("");
-      const { data } = axios.put("/api/auth/reset", { user_id, password });
+      const { data } = axios.put("/api/auth/reset", { user_id, password }); //here we are sending the data back to the backend
       setLoadingState(false);
     } catch (error) {
       setSuccess("");
