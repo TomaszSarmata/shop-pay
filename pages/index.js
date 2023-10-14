@@ -10,7 +10,9 @@ export default function Home({ country }) {
   return (
     <>
       <Header country={country}></Header>
-      <div className={styles.home}></div>
+      <div className={styles.home}>
+        <div className={styles.container}></div>
+      </div>
       <Footer country={country}></Footer>
     </>
   );
