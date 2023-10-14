@@ -12,6 +12,7 @@ import axios from "axios";
 import DotsLoader from "../../../components/shared/loaders/dot-loader";
 import jwt from "jsonwebtoken";
 import { signIn } from "next-auth/react";
+import Router from "next/router";
 
 export default function Reset({ user_id }) {
   console.log("user_id", user_id);
@@ -45,6 +46,7 @@ export default function Reset({ user_id }) {
       };
       await signIn("credentials", options);
       setLoadingState(false);
+      Router.push("/");
     } catch (error) {
       console.log(error);
       setSuccess("");
