@@ -8,11 +8,11 @@ export default function Home({ country }) {
   const { data: session } = useSession();
   console.log("here session", session);
   return (
-    <div>
+    <>
       <Header country={country}></Header>
-      {session ? "You are logged in" : "You are logged out"}
+      <div className={styles.home}></div>
       <Footer country={country}></Footer>
-    </div>
+    </>
   );
 }
 
