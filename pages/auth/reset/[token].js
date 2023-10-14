@@ -13,6 +13,7 @@ import DotsLoader from "../../../components/shared/loaders/dot-loader";
 import jwt from "jsonwebtoken";
 import { signIn } from "next-auth/react";
 import Router from "next/router";
+import { getSession } from "next-auth/react";
 
 export default function Reset({ user_id }) {
   console.log("user_id", user_id);
@@ -46,7 +47,7 @@ export default function Reset({ user_id }) {
       };
       await signIn("credentials", options);
       setLoadingState(false);
-      Router.push("/");
+      window.location.reload(true); //that piece of code will reload the page so that we get the new session and will get redirected to the homepage (look at the getServerSideProps function below)
     } catch (error) {
       console.log(error);
       setSuccess("");
@@ -116,7 +117,15 @@ export default function Reset({ user_id }) {
 }
 
 export async function getServerSideProps(context) {
-  const { query } = context;
+  const { query, req } = context;
+  const session = await getSession({ req });
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
   const token = query.token;
   const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
   return {
