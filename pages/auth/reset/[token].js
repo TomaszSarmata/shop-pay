@@ -11,6 +11,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import DotsLoader from "../../../components/shared/loaders/dot-loader";
 import jwt from "jsonwebtoken";
+import { signIn } from "next-auth/react";
 
 export default function Reset({ user_id }) {
   console.log("user_id", user_id);
@@ -33,9 +34,19 @@ export default function Reset({ user_id }) {
       setLoadingState(true);
       setSuccess("");
       setError("");
-      const { data } = axios.put("/api/auth/reset", { user_id, password }); //here we are sending the data back to the backend
+      const { data } = await axios.put("/api/auth/reset", {
+        user_id,
+        password,
+      }); //here we are sending the data back to the backend
+      let options = {
+        redirect: false,
+        email: data.email, //email that we get from the backend
+        password: password,
+      };
+      await signIn("credentials", options);
       setLoadingState(false);
     } catch (error) {
+      console.log(error);
       setSuccess("");
       setError("");
       setLoadingState(false);
