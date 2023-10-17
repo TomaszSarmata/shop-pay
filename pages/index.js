@@ -4,7 +4,6 @@ import Header from "../components/header";
 import styles from "../styles/Home.module.scss";
 import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react";
-import MainSwiper from "../components/home/main/swiper";
 
 export default function Home({ country }) {
   const { data: session } = useSession();
@@ -15,7 +14,6 @@ export default function Home({ country }) {
       <div className={styles.home}>
         <div className={styles.container}>
           <Main></Main>
-          <MainSwiper></MainSwiper>
         </div>
       </div>
       <Footer country={country}></Footer>
