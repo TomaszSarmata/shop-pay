@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -24,9 +24,9 @@ export default function MainSwiper() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className={styles.mainSwiper}
+        className="mainSwiper"
       >
-        {[...Array(15).keys()].map((i) => (
+        {[...Array(10).keys()].map((i) => (
           <SwiperSlide key={i}>
             <img src={`../../../images/swiper/${i + 1}.jpg`} alt="" />
           </SwiperSlide>
