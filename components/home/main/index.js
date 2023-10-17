@@ -5,7 +5,9 @@ export default function Main() {
     <div className={styles.main}>
       <div className={styles.header}>header</div>
       <div className={styles.menu}>menu</div>
-      <MainSwiper></MainSwiper>
+      <div className={styles.swiper}>
+        <MainSwiper></MainSwiper>
+      </div>
       <div className={styles.offers}>offers</div>
       <div className={styles.user}>user</div>
     </div>
