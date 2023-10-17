@@ -93,4 +93,28 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px !important;
     box-shadow: $shadow-1;
   }
+  .swiper-pagination-bullet {
+    width: 9px !important;
+    border-radius: 5px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: $blue-color !important;
+    width: 13px !important;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fff !important;
+    transform: scale(0.5) !important;
+    font-weight: bold;
+    width: 50px !important;
+    height: 80px !important;
+    transition: 0.2s;
+    background: #666 !important;
+  }
+  .swiper-button-prev {
+    left: -13px;
+  }
+  .swiper-button-next {
+    right: -13px;
+  }
 }
