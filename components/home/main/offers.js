@@ -17,25 +17,27 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 export default function Offers() {
   return (
     <div className={styles.offers}>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={10}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination, Navigation]}
-        navigation={true}
-        className="offers_swiper"
-      >
-        {offersAarray.map((offer, i) => (
-          <SwiperSlide key={i}>
-            <Link href="">
-              <img src={offer.image} alt="" />
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className={styles.offers_swiper_container}>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={10}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination, Navigation]}
+          navigation={true}
+          className="offers_swiper"
+        >
+          {offersAarray.map((offer, i) => (
+            <SwiperSlide key={i}>
+              <Link href="">
+                <img src={offer.image} alt="" />
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
