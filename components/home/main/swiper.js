@@ -14,7 +14,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export default function MainSwiper() {
   return (
-    <>
+    <div className={styles.swiper}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -36,6 +36,6 @@ export default function MainSwiper() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
