@@ -129,8 +129,18 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     right: -13px;
   }
 }
+.offers_swiper_container {
+  max-width: 550px;
+  transform: translateX(58%);
+}
 .offers_swiper {
   .swiper-pagination {
     display: none;
+  }
+  .swiper-button-prev {
+    top: 35%;
+  }
+  .swiper-button-next {
+    top: 35%;
   }
 }
