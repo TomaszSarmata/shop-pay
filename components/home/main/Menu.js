@@ -33,48 +33,50 @@ export default function Menu() {
         </li>
         <li className={styles.menu_list}>
           {menuArray.map((item, i) => (
-            <Link key={i} href={item.link} legacyBehavior>
-              <a>
-                {i == 0 ? (
-                  <GiLargeDress />
-                ) : i == 1 ? (
-                  <GiClothes />
-                ) : i == 2 ? (
-                  <GiHeadphones />
-                ) : i == 3 ? (
-                  <GiWatch />
-                ) : i == 4 ? (
-                  <HiOutlineHome />
-                ) : i == 5 ? (
-                  <GiHealthCapsule />
-                ) : i == 6 ? (
-                  <GiBallerinaShoes />
-                ) : i == 7 ? (
-                  <GiBigDiamondRing />
-                ) : i == 8 ? (
-                  <GiSportMedal />
-                ) : i == 9 ? (
-                  <FaBaby />
-                ) : i == 10 ? (
-                  <BiCameraMovie />
-                ) : i == 11 ? (
-                  <MdOutlineSportsEsports />
-                ) : i == 12 ? (
-                  <BsPhoneVibrate />
-                ) : i == 13 ? (
-                  <MdOutlineSmartToy />
-                ) : i == 14 ? (
-                  <BiGift />
-                ) : i == 15 ? (
-                  <Gi3DHammer />
-                ) : i == 16 ? (
-                  <AiOutlineSecurityScan />
-                ) : (
-                  ""
-                )}
-                <span>{item.name}</span>
-              </a>
-            </Link>
+            <li key={i}>
+              <Link href={item.link} legacyBehavior>
+                <a>
+                  {i == 0 ? (
+                    <GiLargeDress />
+                  ) : i == 1 ? (
+                    <GiClothes />
+                  ) : i == 2 ? (
+                    <GiHeadphones />
+                  ) : i == 3 ? (
+                    <GiWatch />
+                  ) : i == 4 ? (
+                    <HiOutlineHome />
+                  ) : i == 5 ? (
+                    <GiHealthCapsule />
+                  ) : i == 6 ? (
+                    <GiBallerinaShoes />
+                  ) : i == 7 ? (
+                    <GiBigDiamondRing />
+                  ) : i == 8 ? (
+                    <GiSportMedal />
+                  ) : i == 9 ? (
+                    <FaBaby />
+                  ) : i == 10 ? (
+                    <BiCameraMovie />
+                  ) : i == 11 ? (
+                    <MdOutlineSportsEsports />
+                  ) : i == 12 ? (
+                    <BsPhoneVibrate />
+                  ) : i == 13 ? (
+                    <MdOutlineSmartToy />
+                  ) : i == 14 ? (
+                    <BiGift />
+                  ) : i == 15 ? (
+                    <Gi3DHammer />
+                  ) : i == 16 ? (
+                    <AiOutlineSecurityScan />
+                  ) : (
+                    ""
+                  )}
+                  <span>{item.name}</span>
+                </a>
+              </Link>
+            </li>
           ))}
         </li>
       </ul>
