@@ -31,7 +31,7 @@ export default function Menu() {
             <b>Categories</b>
           </a>
         </li>
-        <li className={styles.menu_list}>
+        <div className={styles.menu_list}>
           {menuArray.map((item, i) => (
             <li key={i}>
               <Link href={item.link} legacyBehavior>
@@ -78,7 +78,7 @@ export default function Menu() {
               </Link>
             </li>
           ))}
-        </li>
+        </div>
       </ul>
     </div>
   );
