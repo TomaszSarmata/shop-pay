@@ -31,8 +31,11 @@
         height: 32px;
         display: flex;
         flex-direction: column;
-        gap: 11px;
+        gap: 10px;
         cursor: pointer;
+        &:hover {
+          background: $gray-color;
+        }
 
         a {
           padding: 0 20px;
@@ -46,9 +49,6 @@
             width: 20px;
             fill: #8c8484;
             stroke: #8c8484;
-          }
-          &:hover {
-            background: $gray-color;
           }
         }
       }
