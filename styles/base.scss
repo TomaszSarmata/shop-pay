@@ -176,6 +176,20 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         font-weight: 600;
         background: $yellow-color;
       }
+      &:last-of-type {
+        font-style: italic;
+        top: -5px;
+        right: -5px;
+        background-color: $reddish-color;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: $shadow-1;
+      }
     }
   }
 
