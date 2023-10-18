@@ -1,6 +1,9 @@
 // here is our scss file wiht custom variables that is going to be accessible in our all other files wihtout the manual import statements. To do that we have to change the config settings for next.js with sassOptions
 
 $blue-color: #2f82ff;
+$yellow-color: #fac80f;
+$violet-color: #5a31f4;
+$reddish-color: #f15f6f;
 $gray-color: #f8f8f8;
 $light-error-color: #fd010169;
 $error-color: #ed4337;
@@ -160,6 +163,19 @@ $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     &:hover {
       transform: scale(1.05);
       transition: 0.2s;
+    }
+    span {
+      position: absolute;
+      color: #fff;
+      &:first-of-type {
+        bottom: 10px;
+        height: 25px;
+        width: 90px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        background: $yellow-color;
+      }
     }
   }
 

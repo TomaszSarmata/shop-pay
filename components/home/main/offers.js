@@ -34,6 +34,8 @@ export default function Offers() {
               <Link href="">
                 <img src={offer.image} alt="" />
               </Link>
+              <span>{offer.price}</span>
+              <span>{offer.discount}</span>
             </SwiperSlide>
           ))}
         </Swiper>
