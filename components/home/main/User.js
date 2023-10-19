@@ -70,7 +70,7 @@ export default function User() {
             modules={[EffectCards, Navigation]}
             className="userMenu_swiper"
             style={{
-              maxWidth: "100%",
+              maxWidth: "220px",
               height: "240px",
               marginTop: "2rem",
             }}
