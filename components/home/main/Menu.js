@@ -25,7 +25,7 @@ export default function Menu() {
   return (
     <div className={styles.menu}>
       <ul>
-        <li>
+        <li className={styles.menu_firstLi}>
           <a className={styles.menu_header} href="">
             <BiCategory></BiCategory>
             <b>Categories</b>
