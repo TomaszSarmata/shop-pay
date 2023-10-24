@@ -1,5 +1,6 @@
 import { MdFlashOn } from "react-icons/md";
 import styles from "./styles.module.scss";
+import Countdown from "../../../components/countdown";
 export default function FlashDeals() {
   return (
     <div className={styles.flashDeals}>
@@ -8,6 +9,7 @@ export default function FlashDeals() {
           FLASH SALE
           <MdFlashOn></MdFlashOn>
         </h1>
+        <Countdown></Countdown>
       </div>
     </div>
   );
