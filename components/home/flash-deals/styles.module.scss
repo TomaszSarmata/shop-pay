@@ -1,0 +1,20 @@
+.flashDeals {
+  margin: 1.5rem 0;
+  background: #fff;
+  &_header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: 900;
+    font-size: 25px;
+    text-transform: uppercase;
+    background: $yellow-color;
+    margin-bottom: 10px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
