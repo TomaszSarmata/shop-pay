@@ -4,8 +4,10 @@ export default function FlashDeals() {
   return (
     <div className={styles.flashDeals}>
       <div className={styles.flashDeals_header}>
-        <h1>FLASH SALE</h1>
-        <MdFlashOn></MdFlashOn>
+        <h1>
+          FLASH SALE
+          <MdFlashOn></MdFlashOn>
+        </h1>
       </div>
     </div>
   );
