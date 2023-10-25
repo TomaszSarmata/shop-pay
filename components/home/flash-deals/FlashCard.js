@@ -9,12 +9,13 @@ export default function FlashCard({ product }) {
         <Link href={product.link}>
           <img src={product.image} alt="" />
         </Link>
-        <div className={styles.flash}></div>
       </div>
       <div className={styles.card_price}>
-        <MdFlashOn></MdFlashOn>
-        <span>-{product.discount}%</span>
-        <br />
+        <div className={styles.flash}>
+          <MdFlashOn></MdFlashOn>
+          <span>-{product.discount}%</span>
+        </div>
+
         <span>
           USD{(product.price - product.price / product.discount).toFixed(2)} $
         </span>

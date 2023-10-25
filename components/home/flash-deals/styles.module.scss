@@ -18,24 +18,23 @@
     }
   }
 
-  &_list {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 1rem;
-    @media (max-width: 600px) {
-      justify-content: center;
-    }
-  }
+  // &_list {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   padding-left: 1rem;
+  //   @media (max-width: 600px) {
+  //     justify-content: center;
+  //   }
+  // }
 }
 
 .card {
-  height: 430px;
+  height: 480px;
   width: 283px;
 
   &_img {
-    position: relative;
     width: 100%;
-    height: 320px;
+    height: 360px;
     cursor: pointer;
     overflow: hidden;
 
@@ -46,9 +45,13 @@
     }
   }
   &_price {
+    position: relative;
+    margin-top: 10px;
     svg {
       width: 20px;
       height: 20px;
+    }
+    .flash {
     }
   }
 }
