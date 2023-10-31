@@ -33,25 +33,46 @@
   width: 283px;
 
   &_img {
+    position: relative;
     width: 100%;
     height: 360px;
     cursor: pointer;
-    overflow: hidden;
+    // overflow: hidden;
 
     img {
       width: 100%;
-      height: 100% !important;
+      height: 100%;
       object-fit: cover;
     }
-  }
-  &_price {
-    position: relative;
-    margin-top: 10px;
-    svg {
-      width: 20px;
-      height: 20px;
-    }
     .flash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50px;
+      height: 65px;
+      background: $yellow-color;
+      padding: 1rem;
+      span {
+        color: #333;
+        font-size: 18px;
+        transform: translateY(18px);
+      }
+      svg {
+        position: absolute;
+        transform: scale(2);
+        fill: #333;
+      }
     }
   }
+  // &_price {
+  //   position: relative;
+  //   margin-top: 10px;
+  //   svg {
+  //     width: 20px;
+  //     height: 20px;
+  //   }
+  // }
 }
