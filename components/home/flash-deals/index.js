@@ -52,7 +52,7 @@ export default function FlashDeals() {
       </div>
       <Swiper
         slidesPerView={1} //{slidesPerView} that was with the useEffect
-        spaceBetween={30}
+        spaceBetween={20}
         navigation={true}
         modules={[Navigation]}
         className="flashDeals_swiper"
@@ -66,7 +66,7 @@ export default function FlashDeals() {
           900: {
             slidesPerView: 4,
           },
-          1100: {
+          1150: {
             slidesPerView: 5,
           },
         }}
