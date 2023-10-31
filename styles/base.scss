@@ -276,4 +276,28 @@ $shadow-2: rgba(99, 99, 99, 0.1) 0px 0px 4px 0px;
     height: 100%;
     object-fit: cover;
   }
+  .swiper-button-next {
+    display: none;
+    color: #fff;
+    transform: scale(0.5) !important;
+    font-weight: bold;
+    width: 50px !important;
+    height: 80px !important;
+    right: -9px;
+    top: 35%;
+    transition: 0.2s;
+    background: #66666682 !important;
+  }
+  .swiper-button-prev {
+    display: none;
+    color: #fff;
+    transform: scale(0.5) !important;
+    font-weight: bold;
+    width: 50px !important;
+    height: 80px !important;
+    left: -9px;
+    top: 35%;
+    transition: 0.2s;
+    background: #66666682 !important;
+  }
 }
