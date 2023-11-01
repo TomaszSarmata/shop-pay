@@ -23,17 +23,23 @@ export function calculateTimeDiff(timeInMs) {
 
 function getRemainingSeconds(nowDayjs, timestampDayjs) {
   const seconds = timestampDayjs.diff(nowDayjs, "seconds") % 60;
-  return seconds;
+  return padWithZeros(seconds, 2);
 }
 function getRemainingMinutes(nowDayjs, timestampDayjs) {
   const minutes = timestampDayjs.diff(nowDayjs, "minutes") % 60;
-  return minutes;
+  return padWithZeros(minutes, 2);
 }
 function getRemainingHours(nowDayjs, timestampDayjs) {
   const hours = timestampDayjs.diff(nowDayjs, "hours") % 24;
-  return hours;
+  return padWithZeros(hours, 2);
 }
 function getReaminingDays(nowDayjs, timestampDayjs) {
   const days = timestampDayjs.diff(nowDayjs, "days");
-  return days;
+  return days.toString();
+}
+
+function padWithZeros(number, length) {
+  const numberString = number.toString();
+  if (numberString.lenght >= length) return numberString;
+  return "0".repeat(length - numberString.lenght) + numberString;
 }
