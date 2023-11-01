@@ -41,5 +41,5 @@ function getReaminingDays(nowDayjs, timestampDayjs) {
 function padWithZeros(number, length) {
   const numberString = number.toString();
   if (numberString.length >= length) return numberString;
-  return "0".repeat(length - numberString.lenght) + numberString;
+  return "0".repeat(length - numberString.length) + numberString;
 }
