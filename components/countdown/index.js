@@ -12,7 +12,7 @@ const defaultremainigTime = {
 export default function Countdown({ date }) {
   const [timeInMs, setTimeInMs] = useState(date.getTime());
   const [remainingTime, setRemainingTime] = useState(defaultremainigTime);
-  console.log("ramianing time", remainingTime);
+
   useEffect(() => {
     setTimeInMs(date.getTime());
   }, [date]);
@@ -29,18 +29,18 @@ export default function Countdown({ date }) {
 
   return (
     <div className={styles.countdown}>
-      <span>1</span>
-
-      <span>2</span>
+      {[...Array(remainingTime.days.length).keys()].map((d, i) => (
+        <span key={i}>{remainingTime.days.slice(i, i + 1)}</span>
+      ))}
       <b>:</b>
-      <span>4</span>
-      <span>5</span>
+      <span>{remainingTime.hours.slice(0, 1)}</span>
+      <span>{remainingTime.hours.slice(1, 2)}</span>
       <b>:</b>
-      <span>1</span>
-      <span>0</span>
+      <span>{remainingTime.minutes.slice(0, 1)}</span>
+      <span>{remainingTime.minutes.slice(1, 2)}</span>
       <b>:</b>
-      <span>1</span>
-      <span>0</span>
+      <span>{remainingTime.seconds.slice(0, 1)}</span>
+      <span>{remainingTime.seconds.slice(1, 2)}</span>
     </div>
   );
 }
