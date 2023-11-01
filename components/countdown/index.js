@@ -11,6 +11,9 @@ export default function Countdown() {
       <b>:</b>
       <span>1</span>
       <span>0</span>
+      <b>:</b>
+      <span>1</span>
+      <span>0</span>
     </div>
   );
 }
