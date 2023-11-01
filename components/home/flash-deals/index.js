@@ -48,7 +48,7 @@ export default function FlashDeals() {
           FLASH SALE
           <MdFlashOn></MdFlashOn>
         </h1>
-        <Countdown></Countdown>
+        <Countdown date={new Date(2023, 11, 1)}></Countdown>
       </div>
       <Swiper
         slidesPerView={1} //{slidesPerView} that was with the useEffect
