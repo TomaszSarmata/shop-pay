@@ -30,7 +30,7 @@ function getRemainingMinutes(nowDayjs, timestampDayjs) {
   return padWithZeros(minutes, 2);
 }
 function getRemainingHours(nowDayjs, timestampDayjs) {
-  const hours = timestampDayjs.diff(nowDayjs, "hours") % 24;
+  const hours = timestampDayjs.diff(nowDayjs, "hours") % 60;
   return padWithZeros(hours, 2);
 }
 function getReaminingDays(nowDayjs, timestampDayjs) {
@@ -40,6 +40,6 @@ function getReaminingDays(nowDayjs, timestampDayjs) {
 
 function padWithZeros(number, length) {
   const numberString = number.toString();
-  if (numberString.lenght >= length) return numberString;
+  if (numberString.length >= length) return numberString;
   return "0".repeat(length - numberString.lenght) + numberString;
 }
