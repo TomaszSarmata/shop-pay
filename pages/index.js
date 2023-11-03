@@ -7,9 +7,12 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import FlashDeals from "../components/home/flash-deals";
 import Category from "../components/home/category";
 import { women_accessories, women_dresses, women_shoes } from "../data/home";
+import { useMediaQuery } from "react-responsive";
 
 export default function Home({ country }) {
   const { data: session } = useSession();
+  const isMedium = useMediaQuery({ query: "(max-width: 850px)" });
+  const isSmall = useMediaQuery({ query: "(max-width: 550px)" });
 
   return (
     <>
@@ -24,11 +27,22 @@ export default function Home({ country }) {
               header="Dresses"
               products={women_dresses}
             ></Category>
-            <Category
-              background="#3c811f"
-              header="Shoes / High Heels"
-              products={women_shoes}
-            ></Category>
+
+            {isMedium ? null : (
+              <Category
+                background="#3c811f"
+                header="Shoes / High Heels"
+                products={women_shoes}
+              ></Category>
+            )}
+            {isSmall && (
+              <Category
+                background="#3c811f"
+                header="Shoes / High Heels"
+                products={women_shoes}
+              ></Category>
+            )}
+
             <Category
               background="#000"
               header="Accessories"
