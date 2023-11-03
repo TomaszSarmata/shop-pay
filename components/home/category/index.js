@@ -9,7 +9,9 @@ export default function Category({ header, products, background }) {
       </div>
       <div className={styles.category_products}>
         {products.map((product, i) => (
-          <img key={i} src={product.image} alt="" />
+          <div key={i} className={styles.product}>
+            <img src={product.image} alt="" />
+          </div>
         ))}
       </div>
     </div>
