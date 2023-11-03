@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { useMediaQuery } from "react-responsive";
 export default function Category({ header, products, background }) {
   return (
     <div className={styles.category} style={{ background: `${background}` }}>

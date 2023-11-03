@@ -4,9 +4,6 @@
   border-radius: 10px;
   h1 {
     color: #fff;
-    @media (max-width: 1400px) {
-      font-size: 26px;
-    }
   }
   &_header {
     display: flex;
@@ -33,9 +30,7 @@
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
-    @media (max-width: 1400px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+
     .product {
       img {
         border-radius: 10px;
