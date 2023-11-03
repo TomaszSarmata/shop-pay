@@ -19,7 +19,11 @@ export default function Home({ country }) {
           <Main></Main>
           <FlashDeals></FlashDeals>
           <div className={styles.home_category}>
-            <Category header="Dresses" products={women_dresses}></Category>
+            <Category
+              background="#5a31f4"
+              header="Dresses"
+              products={women_dresses}
+            ></Category>
           </div>
         </div>
       </div>
