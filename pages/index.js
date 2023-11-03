@@ -10,7 +10,7 @@ import { women_accessories, women_dresses, women_shoes } from "../data/home";
 
 export default function Home({ country }) {
   const { data: session } = useSession();
-  console.log("here session", session);
+
   return (
     <>
       <Header country={country}></Header>
