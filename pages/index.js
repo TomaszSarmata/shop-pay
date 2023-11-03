@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react";
 import FlashDeals from "../components/home/flash-deals";
 import Category from "../components/home/category";
-import { women_dresses } from "../data/home";
+import { women_accessories, women_dresses, women_shoes } from "../data/home";
 
 export default function Home({ country }) {
   const { data: session } = useSession();
@@ -23,6 +23,16 @@ export default function Home({ country }) {
               background="#5a31f4"
               header="Dresses"
               products={women_dresses}
+            ></Category>
+            <Category
+              background="#3c811f"
+              header="Shoes / High Heels"
+              products={women_shoes}
+            ></Category>
+            <Category
+              background="#000"
+              header="Accessories"
+              products={women_accessories}
             ></Category>
           </div>
         </div>
