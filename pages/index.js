@@ -16,6 +16,7 @@ export default function Home({ country }) {
         <div className={styles.container}>
           <Main></Main>
           <FlashDeals></FlashDeals>
+          <div className={styles.home_category}></div>
         </div>
       </div>
       <Footer country={country}></Footer>
