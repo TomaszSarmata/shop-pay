@@ -30,14 +30,16 @@
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
-    img {
-      border-radius: 10px;
-      height: 200px;
-      width: 100%;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      &:hover {
-        transform: scale(1.03);
+    .product {
+      img {
+        border-radius: 10px;
+        height: 200px;
+        width: 100%;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        &:hover {
+          transform: scale(1.03);
+        }
       }
     }
   }
